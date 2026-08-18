@@ -1,0 +1,132 @@
+/* Custom styles untuk efek overlay dan animasi */
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'JakartaSans';
+  src: url('/font/JakartaSans/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JakartaSans';
+  src: url('/font/JakartaSans/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JakartaSans';
+  src: url('/font/JakartaSans/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JakartaSans';
+  src: url('/font/JakartaSans/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JakartaSans';
+  src: url('/font/JakartaSans/PlusJakartaSans-Light.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JakartaSans';
+  src: url('/font/JakartaSans/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JakartaSans';
+  src: url('/font/JakartaSans/PlusJakartaSans-SemiBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Italic contoh */
+@font-face {
+  font-family: 'JakartaSans';
+  src: url('/font/JakartaSans/PlusJakartaSans-Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, div {
+    font-family: 'JakartaSans', sans-serif;
+}
+
+.banner-overlay {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+}
+
+/* Animasi sliding untuk sponsor */
+@keyframes slide-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.sponsor-track {
+    animation: slide-left 45s linear infinite;
+    display: flex;
+    width: fit-content;
+}
+
+/* Efek blur putih di sisi kiri dan kanan */
+.slider-fade-container {
+    position: relative;
+    /* Diperlukan untuk positioning pseudo-elements */
+    overflow: hidden;
+    /* Menyembunyikan bagian yang keluar dari container */
+}
+
+.slider-fade-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    /* Lebar area blur */
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    z-index: 20;
+    /* Pastikan di atas slider */
+}
+
+.slider-fade-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    /* Lebar area blur */
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    z-index: 20;
+    /* Pastikan di atas slider */
+}
+
+.slide-banner {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide-banner.active {
+    opacity: 1;
+    position: relative;
+}

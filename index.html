@@ -1,0 +1,1226 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>THE ORIGIN</title>
+    <link rel="icon" href="img/Logo square.webp" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
+
+    <meta name="title" content="THE ORIGIN">
+    <meta name="description"
+        content="A student-centered AI conference bringing together students, educators, policymakers, and leaders in a cross-generational dialogue on the future of education in the age of artificial intelligence.">
+    <meta name="keywords" content="THINK DEEPER FOR INDONESIA’S FUTURE">
+
+    <style>
+        #judge .splide__slide {
+            opacity: .4;
+        }
+
+        #judge .splide__slide .card {
+            transform: scale(.6);
+            transform-origin: center center;
+            will-change: transform;
+        }
+
+        #judge .splide__slide.is-active {
+            opacity: 1;
+        }
+
+        .splide__arrow {
+            background: #85C3E5;
+        }
+
+        .splide__arrow svg {
+            fill: #0D38A1;
+        }
+    </style>
+
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1067393485185284');
+        fbq('track', 'PageView');
+        fbq('trackCustom', 'CornerstoneVisit');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1067393485185284&ev=PageView&noscript=1" />
+    </noscript>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50" id="top">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#top">
+                        <img src="img/eduall.png" alt="EduALL" class="h-8 w-auto inline-block ml-2">
+                    </a>
+                </div>
+
+                <div class="hidden md:flex border-r-1 border-gray-300 h-10">
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 uppercase">
+                    <a href="#cornerstone"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">The
+                        Origin</a>
+                    <a href="#speakers"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Speaker</a>
+                    <a href="#panels"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Panels</a>
+                    <a href="#experience"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Experience</a>
+                    <a href="#get-involve"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Get
+                        Involved</a>
+                </div>
+
+                <div class="hidden md:flex border-l-1 border-gray-300 h-10">
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="https://www.loket.com/event/the-cornerstone-2026"
+                        onclick="fbq('trackCustom', 'GetTicket');" target="_blank"
+                        class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-xl text-sm transition-colors duration-300">
+                        GET YOUR TICKET
+                        <i class="ri-arrow-right-long-line ms-2"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 focus:outline-none p-2">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">The
+                    Cornerstone</a>
+                <a href="#"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Speaker</a>
+                <a href="#"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Panels</a>
+                <a href="#"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Get
+                    Involved</a>
+                <div class="pt-4 pb-2">
+                    <a href="https://www.loket.com/event/the-cornerstone-2026"
+                        onclick="fbq('trackCustom', 'GetTicket');" target="_blank"
+                        class="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md text-base transition-colors duration-300">
+                        GET YOUR TICKET
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Section  -->
+    <section class="relative w-full h-[80vh] md:h-[100vh] overflow-hidden">
+        <!-- Background Image -->
+        <img src="img/Home banner.webp" alt="The Corner Stone" class="absolute inset-0 w-full h-full object-cover">
+
+        <!-- Overlay untuk kontras teks -->
+        <div class="banner-overlay absolute inset-0 w-full h-full"></div>
+
+        <!-- Content Container -->
+        <div class="relative z-10 h-full flex flex-col justify-center px-6 py-12 md:px-12">
+            <!-- Top Section with Title and Date -->
+            <div class="flex flex-col items-center justify-center h-full md:pb-20 pb-0">
+                <div class="h-full justify-center flex flex-col text-center">
+                    <div class="flex items-center justify-center mb-0">
+                        <img src="img/LOGO/Logo EduALL White 2026.png" alt="EduALL" class="md:w-30 w-15 h-auto">
+                        <div class="font-semibold text-white ms-3">
+                            X
+                        </div>
+                        <img src="img/LOGO/Logo IM Panjang - Putih.png" alt="Indonesia Mengajar"
+                            class="md:w-50 w-30 h-auto">
+                    </div>
+                    <h1 class="text-3xl md:text-8xl font-semibold text-white mb-2 md:mb-0">
+                        <span class="font-extralight md:text-6xl text-xl">
+                            T &nbsp; &nbsp; &nbsp; H &nbsp; &nbsp; &nbsp; E
+                        </span>
+                        </br>
+                        ORIGIN
+                    </h1>
+                    <h2 class="text-xl md:text-3xl text-white font-semibold">THINK DEEPER FOR INDONESIA’S FUTURE</h2>
+                    <div class="text-lg md:text-xl text-white mt-20">
+
+                        <i class="ri-timer-2-line me-1"></i> May 9, 2026 | <i class="ri-map-pin-line me-1"></i> Swasana
+                        Lippo Kuningan Grand Ballroom
+                    </div>
+
+                    <div class="md:mt-10 mt-5">
+                        <a href="https://www.loket.com/event/the-cornerstone-2026"
+                            onclick="fbq('trackCustom', 'GetTicket');" target="_blank"
+                            class="bg-white/90 hover:bg-white font-semibold py-2 px-10 rounded text-sm transition-colors duration-300 md:text-xl text-base text-black">
+                            GET YOUR TICKET
+                        </a>
+                    </div>
+
+                    <div class="mt-20 text-white/60 md:text-base text-[11px]">
+                        Every ticket purchased also contributes to supporting educational initiatives in underserved
+                        regions through Indonesia Mengajar.
+                        </d>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Sponsored By Section -->
+    <section class="md:py-10 py-5 bg-white md:px-20 px-0">
+        <!-- Container untuk slider dengan efek fade -->
+        <div class="slider-fade-container relative w-full">
+            <!-- Track yang akan bergerak -->
+            <div class="sponsor-track">
+
+                <!-- List Sponsor & partner ke-1 -->
+                <div class="flex items-center gap-x-8 px-4">
+                    <div
+                        class="flex items-center justify-center h-20 w-32 flex-shrink-0 text-center font-semibold text-[#191265] text-[13px]">
+                        SPONSORED BY <i class="ri-arrow-right-line ms-2"></i>
+                    </div>
+                    <!-- Sponsor 1 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 1.png" alt="Sido Muncul"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 2 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 2.png" alt="KC"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 3 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 3.png" alt="OCBC"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 4 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 4.png" alt="Mount Elizabeth"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 5 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 5.png" alt="Bangor"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 6 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 6.png" alt="Melts Indonesia"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 7 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 7.png" alt="Oat Daily"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 8 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 8.png" alt="Puyo"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 9 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 9.png" alt="Regene"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 10 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 10.png" alt="Samuel Star"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 11 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 11.png" alt="Samuel Star"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 12 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 12.png" alt="Samuel Star"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div
+                        class="flex items-center justify-center h-20 w-32 flex-shrink-0 text-center font-semibold text-[#191265] text-[13px]">
+                        SUPPORTED BY <i class="ri-arrow-right-line ms-2"></i>
+                    </div>
+                    <!-- Parnter 1 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (1).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 2 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (2).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 3 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (3).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 4 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 5 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid) (2).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 6 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid) (3).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 7 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid) (4).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 8 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid) (5).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 9 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (1).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 10 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (2).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 11 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (3).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 12 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (4).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 18 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (5).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 13 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (1).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 14 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (2).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 15 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (3).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 16 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (4).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 17 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (5).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+
+                <!-- List 2  -->
+                <div class="flex items-center gap-x-8 px-4">
+                    <div
+                        class="flex items-center justify-center h-20 w-32 flex-shrink-0 text-center font-semibold text-[#191265] text-[13px]">
+                        SPONSORED BY <i class="ri-arrow-right-line ms-2"></i>
+                    </div>
+                    <!-- Sponsor 1 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 1.png" alt="Sido Muncul"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 2 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 2.png" alt="KC"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 3 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 3.png" alt="OCBC"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 4 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 4.png" alt="Mount Elizabeth"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 5 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 5.png" alt="Bangor"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 6 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 6.png" alt="Melts Indonesia"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 7 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 7.png" alt="Oat Daily"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 8 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 8.png" alt="Puyo"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 9 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 9.png" alt="Regene"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 10 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 10.png" alt="Samuel Star"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 11 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 11.png" alt="Samuel Star"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Sponsor 12 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Sponsors/Logo sponsor 12.png" alt="Samuel Star"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <div
+                        class="flex items-center justify-center h-20 w-32 flex-shrink-0 text-center font-semibold text-[#191265] text-[13px]">
+                        SUPPORTED BY <i class="ri-arrow-right-line ms-2"></i>
+                    </div>
+                    <!-- Parnter 1 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (1).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 2 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (2).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 3 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (3).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 4 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 5 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid) (2).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 6 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid) (3).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 7 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid) (4).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 8 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 1 (paid) (5).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 9 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (1).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 10 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (2).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 11 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (3).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 12 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (4).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 18 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 2 (5).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 13 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (1).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 14 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (2).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 15 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (3).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 16 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (4).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <!-- Parnter 17 -->
+                    <div class="flex items-center justify-center h-20 w-32 flex-shrink-0">
+                        <img src="img/Partners/Logo tier 3 (5).png"
+                            class="max-h-full max-w-full object-contain grayscale-10 hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcoming Section -->
+    <section class="md:py-12 py-6" id="cornerstone">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex md:flex-row flex-col md:gap-10 gap-5 items-start">
+                <div class="flex md:w-1/2 w-full">
+                    <div class="text-left">
+                        <p class="md:text-xl text-md text-[#E7000B] mb-10">
+                            Why ORIGIN
+                        </p>
+                        <p class="text-5xl font-light text-[#0D38A1] leading-[1.2] tracking-tighter">
+                            Every year, thousands
+                            of brilliant Indonesian students develop business ideas, conduct research, design products,
+                            and develop passion projects. <br>
+                            <span class="font-bold">Most of them never leave their notes, remaining as sketches.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex md:w-1/2 w-full">
+                    <div class="md:text-left text-justify md:mt-20 mt-0 md:pl-10">
+                        <p class="text-lg font-light text-[#5974B4] mb-5">
+                            ORIGIN gives students a stage to pitch their ideas, showcase what they've built, receive
+                            feedback from industry professionals, and connect with like-minded students. More than a
+                            competition,
+                            <strong>ORIGIN is a must-have stage</strong> for ambitious students to challenge their
+                            thinking, test their
+                            ideas, and discover ways to create impact.
+                        </p>
+
+                        <div class="flex items-stretch gap-5">
+                            <div class="w-1/2">
+                                <div class="bg-[#DDEBF6] rounded-2xl relative overflow-hidden h-full">
+                                    <img src="img/ORIGIN/why-1.png" alt="THE ORIGIN">
+                                    <div class="p-5 text-[#1B49B2] font-light leading-[1.2]">
+                                        Indonesia needs transformation, and transformation begins where we invest our
+                                        efforts in creating better platforms for our students and young leaders.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-1/2">
+                                <div class="bg-[#FFF2E7] rounded-2xl relative overflow-hidden h-full">
+                                    <img src="img/ORIGIN/why-1.png" alt="THE ORIGIN">
+                                    <div class="p-5 text-[#1B49B2] font-light leading-[1.2]">
+                                        A portion of the event proceeds will be dedicated to funding school or library
+                                        renovation, creating better learning spaces where the next generation of ideas
+                                        can begin.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="md:py-20 py-6 bg-gradient-to-t from-transparent via-[#D4EEFF] to-transparent" id="judges">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-5xl text-[#0D38A1]">
+                Meet the Judges
+            </h2>
+
+            <div class="px-0 md:px-10 mt-10">
+                <div id="judge" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <div class="card">
+                                    <div class="flex justify-center relative z-0">
+                                        <div class="h-full -mb-[25%]">
+                                            <img src="img/ORIGIN/judge-1.png" alt="THE ORIGIN"
+                                                class="w-full object-cover" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="card">
+                                    <div class="flex justify-center relative z-0">
+                                        <div class="h-full -mb-[25%]">
+                                            <img src="img/ORIGIN/judge-2.png" alt="THE ORIGIN"
+                                                class="w-full object-cover" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="splide__slide">
+                                <div class="card">
+                                    <div class="flex justify-center relative z-0">
+                                        <div class="h-full -mb-[25%]">
+                                            <img src="img/ORIGIN/judge-3.png" alt="THE ORIGIN"
+                                                class="w-full object-cover" loading="lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative w-full min-h-[600px] py-20 overflow-hidden bg-white">
+        <div class="relative mx-auto max-w-5xl min-h-[600px]">
+
+            <!-- ================= CENTER ================= -->
+            <div class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
+                <h1 class="text-6xl font-light leading-[1.25] font-light text-[#1745A5]">
+                    Become Part
+                    <br>
+                    of <span class="font-bold">ORIGIN</span>
+                </h1>
+            </div>
+
+
+            <!-- ================= COMPANIES ================= -->
+            <div class="absolute left-[40px] top-[35px] hidden md:block">
+                <div class="relative">
+
+                    <!-- Images -->
+                    <div class="flex items-end">
+                        <img src="img/ORIGIN/part-1.png" alt="Companies"
+                            class="h-[135px] w-[135px] rounded-[9px] object-cover">
+
+                        <img src="img/ORIGIN/part-2.png" alt="Industry Leaders"
+                            class="-ml-[20px] mb-[20px] h-[135px] w-[135px] rounded-[5px] object-cover">
+                    </div>
+
+                    <!-- Label -->
+                    <div class="absolute -bottom-[-5px] right-[-135px] z-10">
+                        <span
+                            class="block w-fit rounded-[8px] bg-[#1645A5] px-3 py-1 text-[16px] text-white font-light">
+                            Companies
+                        </span>
+
+                        <span
+                            class="ml-[12px] mt-[-1px] block w-fit rounded-[8px] bg-[#1645A5] px-3 py-1 text-[16px] text-white font-light">
+                            & Industry Leaders
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ================= PUBLIC ================= -->
+            <div class="absolute right-[75px] top-[45px] hidden md:block">
+                <div class="relative">
+                    <img src="img/ORIGIN/part-3.png" alt="Public"
+                        class="h-[135px] w-[135px] rounded-[8px] object-cover">
+
+                    <span
+                        class="absolute -right-[30px] -top-[8px] rounded-[8px] bg-[#6EC0E5] px-4 py-1 text-[16px] text-white font-light">
+                        Public
+                    </span>
+                </div>
+            </div>
+
+
+            <!-- ================= STUDENTS ================= -->
+            <div class="absolute left-[50px] top-[265px] hidden md:block">
+                <div class="relative">
+                    <img src="img/ORIGIN/part-4.png" alt="Students"
+                        class="h-[135px] w-[135px] rounded-[9px] object-cover">
+
+                    <span
+                        class="absolute -bottom-[10px] right-[-18px] rounded-[8px] bg-[#1645A5] px-3 py-1 text-[15px] text-white font-light">
+                        Students
+                    </span>
+                </div>
+            </div>
+
+
+            <!-- ================= EDUCATION INSTITUTIONS ================= -->
+            <div class="absolute right-[65px] top-[280px] hidden md:block">
+                <div class="relative">
+
+                    <img src="img/ORIGIN/part-5.png" alt="Education Institutions"
+                        class="h-[135px] w-[135px] rounded-[9px] object-cover">
+
+                    <span
+                        class="absolute -bottom-[15px] left-[-68px] whitespace-nowrap rounded-[8px] bg-[#1645A5] px-3 py-1 text-[15px] text-white font-light">
+                        Education Institutions
+                    </span>
+
+                </div>
+            </div>
+
+
+            <!-- ================= PARENTS ================= -->
+            <div class="absolute bottom-[28px] left-1/2 hidden -translate-x-1/2 md:block">
+                <div class="relative">
+
+                    <img src="img/ORIGIN/part-6.png" alt="Parents"
+                        class="h-[135px] w-[135px] rounded-[9px] object-cover">
+
+                    <span
+                        class="absolute -top-[14px] left-[-38px] rounded-[8px] bg-[#6EC0E5] px-3 py-1 text-[15px] text-white font-light">
+                        Parents
+                    </span>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="relative overflow-hidden bg-gradient-to-t from-transparent via-[#FFF4E8] to-transparent">
+        <div class="mx-auto max-w-6xl py-20">
+
+            <div class="grid grid-cols-1 gap-12 md:grid-cols-[50%_50%]">
+
+                <!-- LEFT CONTENT -->
+                <div>
+                    <h1 class="text-[52px] font-light leading-[1.2] tracking-[-1px] text-[#1745A5] md:text-[56px]">
+                        The
+                        <span class="font-bold">ORIGIN</span>
+                        <br>
+                        Journey
+                    </h1>
+
+                    <p class="mt-8 font-light text-xl leading-[1.4] text-[#5B82C9]">
+                        At ORIGIN, the journey matters as much as the destination.
+                        <br>
+                        By combining learning, bootcamp, and industry engagement,
+                        every stage prepares participants to become future
+                        innovators and changemakers.
+                    </p>
+                </div>
+
+
+                <!-- RIGHT TIMELINE -->
+                <div class="relative">
+
+                    <!-- Vertical Line -->
+                    <div class="absolute left-0 top-0 h-full w-px bg-[#71C5E8]"></div>
+
+
+                    <!-- STEP 01 -->
+                    <div class="relative pb-7 pl-8">
+
+                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+
+                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                            Step 01 — Application
+                        </h2>
+
+                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
+                            Students submit their business, research, or project ideas
+                            proposal through an online application
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 02 -->
+                    <div class="relative pb-10 pl-8">
+
+                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+
+                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                            Step 02 — Selection
+                        </h2>
+
+                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
+                            Proposals are evaluated and selected to join The ORIGIN
+                            first bootcamp
+                        </p>
+
+                        <div class="mt-2 h-full w-full overflow-hidden rounded-[5px]">
+                            <img src="img/ORIGIN/journey-1.png" alt="ORIGIN Selection"
+                                class="h-full w-full object-cover">
+                        </div>
+
+                    </div>
+
+
+                    <!-- STEP 03 -->
+                    <div class="relative pb-10 pl-8">
+
+                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+
+                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                            Step 03 — ORIGIN Launch & Bootcamp
+                        </h2>
+
+                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
+                            Filtered participants will participate in an intensive
+                            3–5 days bootcamp focused on fundamental, design thinking,
+                            and goal setting
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 04 -->
+                    <div class="relative pb-10 pl-8">
+
+                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+
+                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                            Step 04 — Build Phase
+                        </h2>
+
+                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
+                            Participants develop prototypes, conduct research, and
+                            refine their project with regular check-ins
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 05 -->
+                    <div class="relative pb-10 pl-8">
+
+                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+
+                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                            Step 05 — Final Selection
+                        </h2>
+
+                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
+                            At the end of the build phase, participants submit their
+                            final prototype/project. EduALL committee will select the
+                            strongest teams to the finale
+                        </p>
+
+                    </div>
+
+                    <!-- STEP 06 -->
+                    <div class="relative pb-10 pl-8">
+
+                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+
+                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                            Step 06 — ORIGIN Bootcamp II
+                        </h2>
+
+                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
+                            Finalists refine their pitches, strengthen reasoning, and
+                            prepare for the final showcase through mock pitching sessions
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 07 -->
+                    <div class="relative pb-10 pl-8">
+
+                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+
+                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                            Step 07 — ORIGIN Finale
+                        </h2>
+
+                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
+                            Finalists exhibit their projects and deliver their final pitches
+                            to judges from leading companies
+                        </p>
+
+                    </div>
+
+
+                    <!-- STEP 08 -->
+                    <div class="relative pl-8">
+
+                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+
+                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                            Step 08 — ORIGIN Final Incubation
+                        </h2>
+
+                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
+                            The winning team will get ORIGIN Grant and one month of
+                            post-event coaching to support the next stage of their
+                            venture or research development
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="w-full bg-white px-6 py-12 sm:px-8 lg:px-16">
+        <div class="mx-auto max-w-5xl">
+            <!-- Heading -->
+            <div class="mb-10 text-center">
+                <h2 class="text-5xl font-bold tracking-tight text-[#1646A0] sm:text-5xl">
+                    Event Features
+                </h2>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+
+                <!-- Feature 1 -->
+                <div class="group overflow-hidden rounded-xl bg-gray-200">
+                    <div class="aspect-[1.65/1]">
+                        <img src="https://placehold.co/800x380/e5e5e5/999999?text=Feature+1" alt="Event Feature 1"
+                            class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="group overflow-hidden rounded-xl bg-gray-200">
+                    <div class="aspect-[1.65/1]">
+                        <img src="https://placehold.co/800x380/e5e5e5/999999?text=Feature+2" alt="Event Feature 2"
+                            class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="group overflow-hidden rounded-xl bg-gray-200">
+                    <div class="aspect-[1.65/1]">
+                        <img src="https://placehold.co/800x380/e5e5e5/999999?text=Feature+3" alt="Event Feature 3"
+                            class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="group overflow-hidden rounded-xl bg-gray-200">
+                    <div class="aspect-[1.65/1]">
+                        <img src="https://placehold.co/800x380/e5e5e5/999999?text=Feature+4" alt="Event Feature 4"
+                            class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Description -->
+            <div class="mx-auto mt-10 max-w-2xl text-center">
+                <p class="text-sm font-light italic leading-relaxed text-[#1646A0] sm:text-base">
+                    Through this initiative, every participant, partner, and attendee contributes to
+                    strengthening educational opportunities for future generations.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto py-20">
+        <!-- Heading -->
+        <div class="mb-10 text-center">
+            <h2 class="text-5xl font-bold tracking-tight text-[#1646A0] sm:text-5xl">
+                Past Projects
+            </h2>
+        </div>
+
+        <div class="px-0 md:px-10 mt-10">
+            <div id="past_project" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="card">
+                                <div class="flex justify-center relative z-0">
+                                    <div class="h-full -mb-[25%]">
+                                        <img src="img/ORIGIN/judge-1.png" alt="THE ORIGIN" class="w-full object-cover"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card">
+                                <div class="flex justify-center relative z-0">
+                                    <div class="h-full -mb-[25%]">
+                                        <img src="img/ORIGIN/judge-2.png" alt="THE ORIGIN" class="w-full object-cover"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="card">
+                                <div class="flex justify-center relative z-0">
+                                    <div class="h-full -mb-[25%]">
+                                        <img src="img/ORIGIN/judge-3.png" alt="THE ORIGIN" class="w-full object-cover"
+                                            loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer  -->
+    <section>
+        <div class="max-w-6xl mx-auto text-start py-10">
+            <div class="flex md:flex-nowrap flex-wrap items-center gap-3">
+                <div class="md:w-1/3 w-full md:text-start text-center">
+                    <a href="#top">
+                        <img src="img/eduall.png" alt="EduALL" class="h-8 w-auto inline-block -ml-1">
+                    </a>
+                </div>
+                <div class="md:w-1/3 w-full">
+                    <div class="flex gap-5 justify-center">
+                        <a href="mailto:info@eduall.com"
+                            class="rounded-full p-3 bg-gray-800 w-10 h-10 flex justify-center items-center">
+                            <i class="ri-mail-line text-2xl text-white"></i>
+                        </a>
+                        <a href="https://www.instagram.com/eduall.official/" target="_blank"
+                            class="rounded-full p-3 bg-gray-800 w-10 h-10 flex justify-center items-center">
+                            <i class="ri-instagram-line text-2xl text-white"></i>
+                        </a>
+                        <a href="https://id.linkedin.com/company/edu-all-official" target="_blank"
+                            class="rounded-full p-3 bg-gray-800 w-10 h-10 flex justify-center items-center">
+                            <i class="ri-linkedin-box-fill text-2xl text-white"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@eduall.official" target="_blank"
+                            class="rounded-full p-3 bg-gray-800 w-10 h-10 flex justify-center items-center">
+                            <i class="ri-youtube-line text-2xl text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/3 w-full md:text-end text-center md:text-base text-lg font-light">
+                    Copyright @ 2026 EduALL, All rights reserved.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Dapatkan elemen-elemen yang diperlukan
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Tambahkan event listener untuk klik pada tombol menu
+        mobileMenuButton.addEventListener('click', () => {
+            // Toggle class 'hidden' pada menu mobile
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+    <script>
+        let slides = document.querySelectorAll('.slide-banner');
+        let index = 0;
+
+        function showSlide() {
+            slides.forEach((slide) => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+
+            index++;
+            if (index >= slides.length) index = 0;
+        }
+
+        setInterval(showSlide, 5000); // ganti slide tiap 5 detik
+
+        // tampilkan pertama kali
+        showSlide();
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const slider = new Splide('#judge', {
+                type: 'loop',
+                perPage: 3,
+                focus: 'center',
+                autoplay: true,
+                interval: 4000,
+                speed: 600,
+                drag: false,
+                arrows: true,
+                pagination: false,
+                fixedWidth: '320px',
+                fixedHeight: '400px',
+                gap: '1rem',
+                padding: '5%',
+
+                breakpoints: {
+                    1024: {
+                        perPage: 2,
+                        fixedWidth: '300px',
+                        gap: '1rem',
+                        padding: '3%',
+                    },
+
+                    768: {
+                        perPage: 1,
+                        fixedWidth: '280px',
+                        gap: '1rem',
+                        padding: '2%',
+                    },
+                },
+            });
+
+            slider.mount();
+
+
+            /*
+             * Scale mengikuti posisi card secara realtime.
+             */
+            function updateScale() {
+
+                const root = document.querySelector('#judge');
+                const slides = root.querySelectorAll('.splide__slide');
+
+                const rootRect = root.getBoundingClientRect();
+                const centerX = rootRect.left + rootRect.width / 2;
+
+                slides.forEach(slide => {
+
+                    const card = slide.querySelector('.card');
+
+                    if (!card) return;
+
+                    const rect = slide.getBoundingClientRect();
+
+                    const slideCenter = rect.left + rect.width / 2;
+
+                    const distance = Math.abs(centerX - slideCenter);
+
+                    const maxDistance = rect.width;
+
+                    const progress = Math.min(
+                        distance / maxDistance,
+                        1
+                    );
+
+                    /*
+                     * =========================
+                     * SCALE
+                     * =========================
+                     *
+                     * Center  = 1
+                     * Samping = 0.6
+                     */
+                    const scale = 1 - (progress * 0.4);
+
+
+                    /*
+                     * =========================
+                     * OPACITY
+                     * =========================
+                     *
+                     * Center  = 1
+                     * Samping = 0.4
+                     */
+                    const opacity = 1 - (progress * 0.6);
+
+
+                    card.style.transform = `scale(${scale})`;
+                    slide.style.opacity = opacity;
+
+                });
+
+                requestAnimationFrame(updateScale);
+            }
+
+            requestAnimationFrame(updateScale);
+
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const slider = new Splide('#past_project', {
+                type: 'loop',
+                perPage: 3,
+                focus: 'center',
+                autoplay: true,
+                interval: 4000,
+                speed: 600,
+                drag: false,
+                arrows: true,
+                pagination: false,
+                fixedWidth: '320px',
+                fixedHeight: 'auto',
+                gap: '1rem',
+                padding: '5%',
+            });
+
+            slider.mount();
+        });
+    </script>
+</body>
+
+</html>
