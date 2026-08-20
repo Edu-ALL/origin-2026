@@ -19,6 +19,11 @@
     <meta name="keywords" content="THINK DEEPER FOR INDONESIA’S FUTURE">
 
     <style>
+        #judge .card {
+            width: 100%;
+            max-width: 400px;
+        }
+
         #judge .splide__slide {
             opacity: .4;
         }
@@ -40,29 +45,51 @@
         .splide__arrow svg {
             fill: #0D38A1;
         }
+
+        #past_project .splide__arrow--prev,
+        #previous_event .splide__arrow--prev {
+            left: -70px;
+        }
+
+        #past_project .splide__arrow--next,
+        #previous_event .splide__arrow--next {
+            right: -70px;
+        }
+
+        @media (max-width: 720px) {
+
+            #past_project .splide__arrow--prev,
+            #previous_event .splide__arrow--prev {
+                left: 0px;
+            }
+
+            #past_project .splide__arrow--next,
+            #previous_event .splide__arrow--next {
+                right: 0px;
+            }
+
+            #previous_event .splide__arrow--prev,
+            #previous_event .splide__arrow--next {
+                top: 220px;
+            }
+        }
+
+        .description {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.3s ease;
+        }
+
+        .description.open {
+            opacity: 1;
+        }
+
+        .journey-step h2 {
+            cursor: pointer;
+            user-select: none;
+        }
     </style>
-
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-
-        fbq('init', '1067393485185284');
-        fbq('track', 'PageView');
-        fbq('trackCustom', 'CornerstoneVisit');
-    </script>
-    <noscript>
-        <img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=1067393485185284&ev=PageView&noscript=1" />
-    </noscript>
 </head>
 
 <body>
@@ -73,7 +100,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="#top">
-                        <img src="img/eduall.png" alt="EduALL" class="h-8 w-auto inline-block ml-2">
+                        <img src="img/ORIGIN/logo-blue.png" alt="ORIGIN" class="h-8 w-auto inline-block ml-2">
                     </a>
                 </div>
 
@@ -82,18 +109,20 @@
 
                 <!-- Desktop Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8 uppercase">
-                    <a href="#cornerstone"
+                    <a href="#journey"
                         class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">The
-                        Origin</a>
-                    <a href="#speakers"
-                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Speaker</a>
-                    <a href="#panels"
-                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Panels</a>
-                    <a href="#experience"
-                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Experience</a>
-                    <a href="#get-involve"
-                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Get
-                        Involved</a>
+                        Journey</a>
+                    <a href="#event"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Event
+                        Day</a>
+                    <a href="#past_event"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Past
+                        Event</a>
+                    <a href="#apply"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">Apply</a>
+                    <a href="https://edu-all.com" target="_blank"
+                        class="text-gray-700 hover:text-blue-600 active:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-300">EduALL
+                    </a>
                 </div>
 
                 <div class="hidden md:flex border-l-1 border-gray-300 h-10">
@@ -101,10 +130,9 @@
 
                 <!-- CTA Button -->
                 <div class="hidden md:block">
-                    <a href="https://www.loket.com/event/the-cornerstone-2026"
-                        onclick="fbq('trackCustom', 'GetTicket');" target="_blank"
-                        class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-xl text-sm transition-colors duration-300">
-                        GET YOUR TICKET
+                    <a href="#" target="_blank"
+                        class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-xl text-sm transition-colors duration-300 uppercase">
+                        Apply Now
                         <i class="ri-arrow-right-long-line ms-2"></i>
                     </a>
                 </div>
@@ -126,23 +154,23 @@
         <!-- Mobile menu panel -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#"
+                <a href="#journey"
                     class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">The
-                    Cornerstone</a>
-                <a href="#"
-                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Speaker</a>
-                <a href="#"
-                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Panels</a>
-                <a href="#"
-                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Experience</a>
-                <a href="#"
-                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Get
-                    Involved</a>
+                    Journey</a>
+                <a href="#event"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Event
+                    Day</a>
+                <a href="#past_event"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Past
+                    Event</a>
+                <a href="#apply"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Apply</a>
+                <a href="https://edu-all.com" target="_blank"
+                    class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">EduALL</a>
                 <div class="pt-4 pb-2">
-                    <a href="https://www.loket.com/event/the-cornerstone-2026"
-                        onclick="fbq('trackCustom', 'GetTicket');" target="_blank"
+                    <a href="#" target="_blank"
                         class="block w-full text-center bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md text-base transition-colors duration-300">
-                        GET YOUR TICKET
+                        APPLY NOW
                     </a>
                 </div>
             </div>
@@ -150,55 +178,118 @@
     </nav>
 
     <!-- Banner Section  -->
-    <section class="relative w-full h-[80vh] md:h-[100vh] overflow-hidden">
+    <section class="relative w-full h-[100dvh] md:h-[100vh] bg-[#1846A7] overflow-hidden">
         <!-- Background Image -->
-        <img src="img/Home banner.webp" alt="The Corner Stone" class="absolute inset-0 w-full h-full object-cover">
-
-        <!-- Overlay untuk kontras teks -->
-        <div class="banner-overlay absolute inset-0 w-full h-full"></div>
+        <img src="img/ORIGIN/banner.webp" alt="The Corner Stone" class="absolute inset-0 w-full h-full object-cover">
 
         <!-- Content Container -->
-        <div class="relative z-10 h-full flex flex-col justify-center px-6 py-12 md:px-12">
-            <!-- Top Section with Title and Date -->
-            <div class="flex flex-col items-center justify-center h-full md:pb-20 pb-0">
-                <div class="h-full justify-center flex flex-col text-center">
-                    <div class="flex items-center justify-center mb-0">
-                        <img src="img/LOGO/Logo EduALL White 2026.png" alt="EduALL" class="md:w-30 w-15 h-auto">
-                        <div class="font-semibold text-white ms-3">
-                            X
+        <div class="max-w-4xl">
+            <div class="relative z-10 h-full flex flex-col justify-center px-6 md:py-8 py-10 md:px-12">
+                <!-- Top Section with Title and Date -->
+                <div class="flex flex-col items-center justify-center h-full md:pb-20 pb-0">
+                    <div class="h-full justify-center flex flex-col text-center">
+                        <p class="text-white  text-[12px] md:text-lg max-w-xl mx-auto font-light">
+                            Inspired by Shark Tank and Dragon's Den. <br>
+                            Created for Indonesia's next generation of innovators.
+                        </p>
+
+                        <img src="img/ORIGIN/logo-origin.png" alt="The ORIGIN"
+                            class="md:max-w-xl max-w-[70%] mx-auto my-5">
+                        <h2
+                            class="text-lg md:text-2xl text-white font-semibold max-w-xl mx-auto uppercase md:px-0 px-10">
+                            Opportunity for Research, Innovation, Growth, Impact & Networking
+                        </h2>
+
+                        <div class="md:w-md w-full mx-auto mt-5 md:px-0 px-10">
+                            <div class="bg-white/20 rounded-xl border border-white/40 w-full text-white py-3 px-5">
+                                <div class="flex justify-around items-center">
+                                    <div class="text-2xl md:text-4xl"> 21 </div>
+                                    <div class="text-2xl md:text-4xl">
+                                        NOVEMBER
+                                    </div>
+                                    <div class="bg-white p-1 px-4 text-xl md:text-3xl rounded-xl text-[#113CA3]">
+                                        2026
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <img src="img/LOGO/Logo IM Panjang - Putih.png" alt="Indonesia Mengajar"
-                            class="md:w-50 w-30 h-auto">
-                    </div>
-                    <h1 class="text-3xl md:text-8xl font-semibold text-white mb-2 md:mb-0">
-                        <span class="font-extralight md:text-6xl text-xl">
-                            T &nbsp; &nbsp; &nbsp; H &nbsp; &nbsp; &nbsp; E
-                        </span>
-                        </br>
-                        ORIGIN
-                    </h1>
-                    <h2 class="text-xl md:text-3xl text-white font-semibold">THINK DEEPER FOR INDONESIA’S FUTURE</h2>
-                    <div class="text-lg md:text-xl text-white mt-20">
 
-                        <i class="ri-timer-2-line me-1"></i> May 9, 2026 | <i class="ri-map-pin-line me-1"></i> Swasana
-                        Lippo Kuningan Grand Ballroom
-                    </div>
+                        <div class="md:w-md w-full mx-auto mt-5 md:px-0 px-10">
+                            <div class="flex items-start justify-around text-white w-full">
 
-                    <div class="md:mt-10 mt-5">
-                        <a href="https://www.loket.com/event/the-cornerstone-2026"
-                            onclick="fbq('trackCustom', 'GetTicket');" target="_blank"
-                            class="bg-white/90 hover:bg-white font-semibold py-2 px-10 rounded text-sm transition-colors duration-300 md:text-xl text-base text-black">
-                            GET YOUR TICKET
-                        </a>
-                    </div>
+                                <!-- Days -->
+                                <div
+                                    class="text-center w-[20%] bg-white/20 border border-white/40 rounded-xl py-3 px-3">
+                                    <div class="count-box w-full rounded-lg flex items-center justify-center">
+                                        <span id="days" class="text-2xl sm:text-3xl font-light tracking-wide">
+                                            00
+                                        </span>
+                                    </div>
+                                    <div class="mt-2 text-[10px] md:text-sm font-bold">
+                                        DAYS
+                                    </div>
+                                </div>
 
-                    <div class="mt-20 text-white/60 md:text-base text-[11px]">
-                        Every ticket purchased also contributes to supporting educational initiatives in underserved
-                        regions through Indonesia Mengajar.
-                        </d>
+                                <!-- Separator -->
+                                <div class="text-3xl font-light mt-4 w-[6%]">:</div>
+
+                                <!-- Hours -->
+                                <div
+                                    class="text-center w-[20%] bg-white/20 border border-white/40 rounded-xl py-3 px-3">
+                                    <div class="count-box rounded-lg flex items-center justify-center">
+                                        <span id="hours" class="text-2xl sm:text-3xl font-light tracking-wide">
+                                            00
+                                        </span>
+                                    </div>
+                                    <div class="mt-2 text-[10px] md:text-sm font-bold">
+                                        HOURS
+                                    </div>
+                                </div>
+
+                                <!-- Separator -->
+                                <div class="text-3xl font-light mt-4 w-[6%]">:</div>
+
+                                <!-- Minutes -->
+                                <div
+                                    class="text-center w-[20%] bg-white/20 border border-white/40 rounded-xl py-3 px-3">
+                                    <div class="count-box rounded-lg flex items-center justify-center">
+                                        <span id="minutes" class="text-2xl sm:text-3xl font-light tracking-wide">
+                                            00
+                                        </span>
+                                    </div>
+                                    <div class="mt-2 text-[10px] md:text-sm font-bold">
+                                        MINUTES
+                                    </div>
+                                </div>
+
+                                <!-- Separator -->
+                                <div class="text-3xl font-light mt-4 w-[6%]">:</div>
+
+                                <!-- Seconds -->
+                                <div
+                                    class="text-center w-[20%] bg-white/20 border border-white/40 rounded-xl py-3 px-3">
+                                    <div class="count-box rounded-lg flex items-center justify-center">
+                                        <span id="seconds" class="text-2xl sm:text-3xl font-light tracking-wide">
+                                            00
+                                        </span>
+                                    </div>
+                                    <div class="mt-2 text-[10px] md:text-sm font-bold">
+                                        SECONDS
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="w-md mx-auto mt-10">
+                            <a href="#" class="bg-[#FA6C53] text-lg md:text-xl py-3 px-5 text-white rounded-xl">
+                                Apply Now
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Sponsored By Section -->
@@ -536,15 +627,15 @@
     </section>
 
     <!-- Welcoming Section -->
-    <section class="md:py-12 py-6" id="cornerstone">
-        <div class="max-w-6xl mx-auto text-center">
+    <section class="md:py-12 py-6">
+        <div class="max-w-6xl mx-auto text-center md:px-0 px-5">
             <div class="flex md:flex-row flex-col md:gap-10 gap-5 items-start">
                 <div class="flex md:w-1/2 w-full">
                     <div class="text-left">
-                        <p class="md:text-xl text-md text-[#E7000B] mb-10">
+                        <p class="md:text-xl text-md text-[#E7000B] md:mb-10 mb-5">
                             Why ORIGIN
                         </p>
-                        <p class="text-5xl font-light text-[#0D38A1] leading-[1.2] tracking-tighter">
+                        <p class="text-3xl md:text-5xl font-light text-[#0D38A1] leading-[1.2] tracking-tighter">
                             Every year, thousands
                             of brilliant Indonesian students develop business ideas, conduct research, design products,
                             and develop passion projects. <br>
@@ -565,20 +656,24 @@
                         </p>
 
                         <div class="flex items-stretch gap-5">
-                            <div class="w-1/2">
+                            <div class="w-full md:w-1/2">
                                 <div class="bg-[#DDEBF6] rounded-2xl relative overflow-hidden h-full">
-                                    <img src="img/ORIGIN/why-1.png" alt="THE ORIGIN">
-                                    <div class="p-5 text-[#1B49B2] font-light leading-[1.2]">
+                                    <img src="img/ORIGIN/why-1.png" alt="THE ORIGIN"
+                                        class="h-[150px] w-full object-cover">
+                                    <div
+                                        class="p-5 text-[#1B49B2] font-light leading-[1.2] md:text-justify text-start md:text-base text-sm">
                                         Indonesia needs transformation, and transformation begins where we invest our
                                         efforts in creating better platforms for our students and young leaders.
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="w-1/2">
+                            <div class="w-full md:w-1/2">
                                 <div class="bg-[#FFF2E7] rounded-2xl relative overflow-hidden h-full">
-                                    <img src="img/ORIGIN/why-1.png" alt="THE ORIGIN">
-                                    <div class="p-5 text-[#1B49B2] font-light leading-[1.2]">
+                                    <img src="img/ORIGIN/why-2.webp" alt="THE ORIGIN"
+                                        class="h-[150px] w-full object-cover">
+                                    <div
+                                        class="p-5 text-[#1B49B2] font-light leading-[1.2] md:text-justify text-start md:text-base text-sm">
                                         A portion of the event proceeds will be dedicated to funding school or library
                                         renovation, creating better learning spaces where the next generation of ideas
                                         can begin.
@@ -594,19 +689,19 @@
 
 
     <section class="md:py-20 py-6 bg-gradient-to-t from-transparent via-[#D4EEFF] to-transparent" id="judges">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-5xl text-[#0D38A1]">
+        <div class="md:max-w-6xl max-w-full mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl text-[#0D38A1]">
                 Meet the Judges
             </h2>
 
-            <div class="px-0 md:px-10 mt-10">
+            <div class="px-0 md:px-10 md:mt-10 mt-2 px-5">
                 <div id="judge" class="splide">
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <div class="card">
-                                    <div class="flex justify-center relative z-0">
-                                        <div class="h-full -mb-[25%]">
+                                <div class="card w-full">
+                                    <div class="flex w-full justify-center relative z-0">
+                                        <div class="h-full w-full">
                                             <img src="img/ORIGIN/judge-1.png" alt="THE ORIGIN"
                                                 class="w-full object-cover" loading="lazy">
                                         </div>
@@ -614,9 +709,9 @@
                                 </div>
                             </li>
                             <li class="splide__slide">
-                                <div class="card">
-                                    <div class="flex justify-center relative z-0">
-                                        <div class="h-full -mb-[25%]">
+                                <div class="card w-full">
+                                    <div class="flex w-full justify-center relative z-0">
+                                        <div class="h-full w-full">
                                             <img src="img/ORIGIN/judge-2.png" alt="THE ORIGIN"
                                                 class="w-full object-cover" loading="lazy">
                                         </div>
@@ -624,9 +719,9 @@
                                 </div>
                             </li>
                             <li class="splide__slide">
-                                <div class="card">
-                                    <div class="flex justify-center relative z-0">
-                                        <div class="h-full -mb-[25%]">
+                                <div class="card w-full">
+                                    <div class="flex w-full justify-center relative z-0">
+                                        <div class="h-full w-full">
                                             <img src="img/ORIGIN/judge-3.png" alt="THE ORIGIN"
                                                 class="w-full object-cover" loading="lazy">
                                         </div>
@@ -640,12 +735,14 @@
         </div>
     </section>
 
+
+
     <section class="relative w-full min-h-[600px] py-20 overflow-hidden bg-white">
-        <div class="relative mx-auto max-w-5xl min-h-[600px]">
+        <div class="relative mx-auto max-w-5xl md:min-h-[600px] min-h-[500px]">
 
             <!-- ================= CENTER ================= -->
             <div class="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
-                <h1 class="text-6xl font-light leading-[1.25] font-light text-[#1745A5]">
+                <h1 class="text-3xl md:text-6xl font-light leading-[1.25] font-light text-[#1745A5]">
                     Become Part
                     <br>
                     of <span class="font-bold">ORIGIN</span>
@@ -654,27 +751,27 @@
 
 
             <!-- ================= COMPANIES ================= -->
-            <div class="absolute left-[40px] top-[35px] hidden md:block">
+            <div class="absolute left-[10px] md:left-[40px] top-[35px]">
                 <div class="relative">
 
                     <!-- Images -->
                     <div class="flex items-end">
                         <img src="img/ORIGIN/part-1.png" alt="Companies"
-                            class="h-[135px] w-[135px] rounded-[9px] object-cover">
+                            class="h-[80px] md:h-[135px] w-[80px] md:w-[135px] rounded-[9px] object-cover">
 
                         <img src="img/ORIGIN/part-2.png" alt="Industry Leaders"
-                            class="-ml-[20px] mb-[20px] h-[135px] w-[135px] rounded-[5px] object-cover">
+                            class="-ml-[20px] mb-[20px] h-[80px] md:h-[135px] w-[80px] md:w-[135px] rounded-[5px] object-cover">
                     </div>
 
                     <!-- Label -->
-                    <div class="absolute -bottom-[-5px] right-[-135px] z-10">
+                    <div class="absolute  -bottom-[20px] md:-bottom-[-5px] right-[-80px] md:right-[-135px] z-10">
                         <span
-                            class="block w-fit rounded-[8px] bg-[#1645A5] px-3 py-1 text-[16px] text-white font-light">
+                            class="block w-fit rounded-[8px] bg-[#1645A5] px-3 py-1 text-[12px] md:text-[16px] text-white font-light">
                             Companies
                         </span>
 
                         <span
-                            class="ml-[12px] mt-[-1px] block w-fit rounded-[8px] bg-[#1645A5] px-3 py-1 text-[16px] text-white font-light">
+                            class="ml-[12px] mt-[-1px] block w-fit rounded-[8px] bg-[#1645A5] px-3 py-1 text-[12px] md:text-[16px] text-white font-light">
                             & Industry Leaders
                         </span>
                     </div>
@@ -683,13 +780,13 @@
 
 
             <!-- ================= PUBLIC ================= -->
-            <div class="absolute right-[75px] top-[45px] hidden md:block">
+            <div class="absolute right-[50px] md:right-[75px] top-[45px]">
                 <div class="relative">
                     <img src="img/ORIGIN/part-3.png" alt="Public"
-                        class="h-[135px] w-[135px] rounded-[8px] object-cover">
+                        class="h-[80px] md:h-[135px] w-[80px] md:w-[135px] rounded-[8px] object-cover">
 
                     <span
-                        class="absolute -right-[30px] -top-[8px] rounded-[8px] bg-[#6EC0E5] px-4 py-1 text-[16px] text-white font-light">
+                        class="absolute -right-[30px] -top-[8px] rounded-[8px] bg-[#6EC0E5] px-4 py-1 text-[12px] md:text-[16px] text-white font-light">
                         Public
                     </span>
                 </div>
@@ -697,13 +794,13 @@
 
 
             <!-- ================= STUDENTS ================= -->
-            <div class="absolute left-[50px] top-[265px] hidden md:block">
+            <div class="absolute left-[20px] md:left-[50px]  top-[280px] md:top-[265px]">
                 <div class="relative">
                     <img src="img/ORIGIN/part-4.png" alt="Students"
-                        class="h-[135px] w-[135px] rounded-[9px] object-cover">
+                        class="h-[80px] md:h-[135px] w-[80px] md:w-[135px] rounded-[9px] object-cover">
 
                     <span
-                        class="absolute -bottom-[10px] right-[-18px] rounded-[8px] bg-[#1645A5] px-3 py-1 text-[15px] text-white font-light">
+                        class="absolute -bottom-[10px] right-[-18px] rounded-[8px] bg-[#1645A5] px-3 py-1 text-[12px] md:text-[16px] text-white font-light">
                         Students
                     </span>
                 </div>
@@ -711,14 +808,14 @@
 
 
             <!-- ================= EDUCATION INSTITUTIONS ================= -->
-            <div class="absolute right-[65px] top-[280px] hidden md:block">
+            <div class="absolute right-[40px] md:right-[65px] top-[300px] md:top-[280px]">
                 <div class="relative">
 
                     <img src="img/ORIGIN/part-5.png" alt="Education Institutions"
-                        class="h-[135px] w-[135px] rounded-[9px] object-cover">
+                        class="h-[80px] md:h-[135px] w-[80px] md:w-[135px] rounded-[9px] object-cover">
 
                     <span
-                        class="absolute -bottom-[15px] left-[-68px] whitespace-nowrap rounded-[8px] bg-[#1645A5] px-3 py-1 text-[15px] text-white font-light">
+                        class="absolute -bottom-[15px] left-[-68px] whitespace-nowrap rounded-[8px] bg-[#1645A5] px-3 py-1 text-[12px] md:text-[16px] text-white font-light">
                         Education Institutions
                     </span>
 
@@ -727,14 +824,14 @@
 
 
             <!-- ================= PARENTS ================= -->
-            <div class="absolute bottom-[28px] left-1/2 hidden -translate-x-1/2 md:block">
+            <div class="absolute bottom-[10px] md:bottom-[28px] left-1/2 -translate-x-1/2">
                 <div class="relative">
 
                     <img src="img/ORIGIN/part-6.png" alt="Parents"
-                        class="h-[135px] w-[135px] rounded-[9px] object-cover">
+                        class="h-[80px] md:h-[135px] w-[80px] md:w-[135px] rounded-[9px] object-cover">
 
                     <span
-                        class="absolute -top-[14px] left-[-38px] rounded-[8px] bg-[#6EC0E5] px-3 py-1 text-[15px] text-white font-light">
+                        class="absolute -top-[14px] left-[-38px] rounded-[8px] bg-[#6EC0E5] px-3 py-1 text-[12px] md:text-[16px] text-white font-light">
                         Parents
                     </span>
 
@@ -744,21 +841,26 @@
         </div>
     </section>
 
-    <section class="relative overflow-hidden bg-gradient-to-t from-transparent via-[#FFF4E8] to-transparent">
-        <div class="mx-auto max-w-6xl py-20">
 
-            <div class="grid grid-cols-1 gap-12 md:grid-cols-[50%_50%]">
+    <section
+        class="relative overflow-hidden bg-gradient-to-t from-transparent via-[#FFF4E8] to-transparent scroll-mt-20"
+        id="journey">
+        <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
+
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-[50%_50%] md:gap-12">
 
                 <!-- LEFT CONTENT -->
                 <div>
-                    <h1 class="text-[52px] font-light leading-[1.2] tracking-[-1px] text-[#1745A5] md:text-[56px]">
+                    <h1
+                        class="text-3xl font-light leading-[1.2] tracking-[-1px] text-[#1745A5] sm:text-5xl md:text-[56px]">
                         The
                         <span class="font-bold">ORIGIN</span>
                         <br>
                         Journey
                     </h1>
 
-                    <p class="mt-8 font-light text-xl leading-[1.4] text-[#5B82C9]">
+                    <p
+                        class="mt-3 font-light text-sm leading-[1.5] text-[#5B82C9] sm:mt-6 sm:text-lg md:mt-8 md:text-xl md:leading-[1.4]">
                         At ORIGIN, the journey matters as much as the destination.
                         <br>
                         By combining learning, bootcamp, and industry engagement,
@@ -776,144 +878,184 @@
 
 
                     <!-- STEP 01 -->
-                    <div class="relative pb-7 pl-8">
+                    <div class="journey-step relative pb-6 pl-6 sm:pb-7 sm:pl-8">
 
-                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+                        <span
+                            class="absolute -left-[3px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8] sm:-left-[4px]"></span>
 
-                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                        <h2
+                            class="text-base font-bold leading-tight text-[#1245A5] sm:text-xl md:text-2xl md:text-[20px]">
                             Step 01 — Application
                         </h2>
 
-                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
-                            Students submit their business, research, or project ideas
-                            proposal through an online application
-                        </p>
+                        <div class="description open">
+                            <p
+                                class="mt-1.5 text-xs font-light leading-[1.5] text-[#5B82C9] sm:text-base md:text-lg md:leading-[1.15]">
+                                Students submit their business, research, or project ideas
+                                proposal through an online application
+                            </p>
+                        </div>
 
                     </div>
 
 
                     <!-- STEP 02 -->
-                    <div class="relative pb-10 pl-8">
+                    <div class="journey-step relative pb-8 pl-6 sm:pb-10 sm:pl-8">
 
-                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+                        <span
+                            class="absolute -left-[3px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8] sm:-left-[4px]"></span>
 
-                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                        <h2
+                            class="text-base font-bold leading-tight text-[#1245A5] sm:text-xl md:text-2xl md:text-[20px]">
                             Step 02 — Selection
                         </h2>
 
-                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
-                            Proposals are evaluated and selected to join The ORIGIN
-                            first bootcamp
-                        </p>
+                        <div class="description">
+                            <p
+                                class="mt-1.5 text-xs font-light leading-[1.5] text-[#5B82C9] sm:text-base md:text-lg md:leading-[1.15]">
+                                Proposals are evaluated and selected to join The ORIGIN
+                                first bootcamp
+                            </p>
 
-                        <div class="mt-2 h-full w-full overflow-hidden rounded-[5px]">
-                            <img src="img/ORIGIN/journey-1.png" alt="ORIGIN Selection"
-                                class="h-full w-full object-cover">
+                            <div class="mt-2 max-h-[150px] w-full overflow-hidden rounded-[5px] sm:mt-2 sm:max-h-none">
+                                <img src="img/ORIGIN/journey-1.png" alt="ORIGIN Selection"
+                                    class="h-full w-full object-cover">
+                            </div>
                         </div>
 
                     </div>
 
 
                     <!-- STEP 03 -->
-                    <div class="relative pb-10 pl-8">
+                    <div class="journey-step relative pb-8 pl-6 sm:pb-10 sm:pl-8">
 
-                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+                        <span
+                            class="absolute -left-[3px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8] sm:-left-[4px]"></span>
 
-                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                        <h2
+                            class="text-base font-bold leading-tight text-[#1245A5] sm:text-xl md:text-2xl md:text-[20px]">
                             Step 03 — ORIGIN Launch & Bootcamp
                         </h2>
 
-                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
-                            Filtered participants will participate in an intensive
-                            3–5 days bootcamp focused on fundamental, design thinking,
-                            and goal setting
-                        </p>
+                        <div class="description">
+                            <p
+                                class="mt-1.5 text-xs font-light leading-[1.5] text-[#5B82C9] sm:text-base md:text-lg md:leading-[1.15]">
+                                Filtered participants will participate in an intensive
+                                3–5 days bootcamp focused on fundamental, design thinking,
+                                and goal setting
+                            </p>
+                        </div>
 
                     </div>
 
 
                     <!-- STEP 04 -->
-                    <div class="relative pb-10 pl-8">
+                    <div class="journey-step relative pb-8 pl-6 sm:pb-10 sm:pl-8">
 
-                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+                        <span
+                            class="absolute -left-[3px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8] sm:-left-[4px]"></span>
 
-                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                        <h2
+                            class="text-base font-bold leading-tight text-[#1245A5] sm:text-xl md:text-2xl md:text-[20px]">
                             Step 04 — Build Phase
                         </h2>
 
-                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
-                            Participants develop prototypes, conduct research, and
-                            refine their project with regular check-ins
-                        </p>
+                        <div class="description">
+                            <p
+                                class="mt-1.5 text-xs font-light leading-[1.5] text-[#5B82C9] sm:text-base md:text-lg md:leading-[1.15]">
+                                Participants develop prototypes, conduct research, and
+                                refine their project with regular check-ins
+                            </p>
+                        </div>
 
                     </div>
 
 
                     <!-- STEP 05 -->
-                    <div class="relative pb-10 pl-8">
+                    <div class="journey-step relative pb-8 pl-6 sm:pb-10 sm:pl-8">
 
-                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+                        <span
+                            class="absolute -left-[3px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8] sm:-left-[4px]"></span>
 
-                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                        <h2
+                            class="text-base font-bold leading-tight text-[#1245A5] sm:text-xl md:text-2xl md:text-[20px]">
                             Step 05 — Final Selection
                         </h2>
 
-                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
-                            At the end of the build phase, participants submit their
-                            final prototype/project. EduALL committee will select the
-                            strongest teams to the finale
-                        </p>
+                        <div class="description">
+                            <p
+                                class="mt-1.5 text-xs font-light leading-[1.5] text-[#5B82C9] sm:text-base md:text-lg md:leading-[1.15]">
+                                At the end of the build phase, participants submit their
+                                final prototype/project. EduALL committee will select the
+                                strongest teams to the finale
+                            </p>
+                        </div>
 
                     </div>
 
                     <!-- STEP 06 -->
-                    <div class="relative pb-10 pl-8">
+                    <div class="journey-step relative pb-8 pl-6 sm:pb-10 sm:pl-8">
 
-                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+                        <span
+                            class="absolute -left-[3px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8] sm:-left-[4px]"></span>
 
-                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                        <h2
+                            class="text-base font-bold leading-tight text-[#1245A5] sm:text-xl md:text-2xl md:text-[20px]">
                             Step 06 — ORIGIN Bootcamp II
                         </h2>
 
-                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
-                            Finalists refine their pitches, strengthen reasoning, and
-                            prepare for the final showcase through mock pitching sessions
-                        </p>
+                        <div class="description">
+                            <p
+                                class="mt-1.5 text-xs font-light leading-[1.5] text-[#5B82C9] sm:text-base md:text-lg md:leading-[1.15]">
+                                Finalists refine their pitches, strengthen reasoning, and
+                                prepare for the final showcase through mock pitching sessions
+                            </p>
+                        </div>
 
                     </div>
 
 
                     <!-- STEP 07 -->
-                    <div class="relative pb-10 pl-8">
+                    <div class="journey-step relative pb-8 pl-6 sm:pb-10 sm:pl-8">
 
-                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+                        <span
+                            class="absolute -left-[3px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8] sm:-left-[4px]"></span>
 
-                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                        <h2
+                            class="text-base font-bold leading-tight text-[#1245A5] sm:text-xl md:text-2xl md:text-[20px]">
                             Step 07 — ORIGIN Finale
                         </h2>
 
-                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
-                            Finalists exhibit their projects and deliver their final pitches
-                            to judges from leading companies
-                        </p>
+                        <div class="description">
+                            <p
+                                class="mt-1.5 text-xs font-light leading-[1.5] text-[#5B82C9] sm:text-base md:text-lg md:leading-[1.15]">
+                                Finalists exhibit their projects and deliver their final pitches
+                                to judges from leading companies
+                            </p>
+                        </div>
 
                     </div>
 
 
                     <!-- STEP 08 -->
-                    <div class="relative pl-8">
+                    <div class="journey-step relative pl-6 sm:pl-8">
 
-                        <span class="absolute -left-[4px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8]"></span>
+                        <span
+                            class="absolute -left-[3px] top-[5px] h-2 w-2 rounded-full bg-[#71C5E8] sm:-left-[4px]"></span>
 
-                        <h2 class="text-2xl font-bold leading-tight text-[#1245A5] md:text-[20px]">
+                        <h2
+                            class="text-base font-bold leading-tight text-[#1245A5] sm:text-xl md:text-2xl md:text-[20px]">
                             Step 08 — ORIGIN Final Incubation
                         </h2>
 
-                        <p class="mt-2 text-lg font-light leading-[1.15] text-[#5B82C9]">
-                            The winning team will get ORIGIN Grant and one month of
-                            post-event coaching to support the next stage of their
-                            venture or research development
-                        </p>
+                        <div class="description">
+                            <p
+                                class="mt-1.5 text-xs font-light leading-[1.5] text-[#5B82C9] sm:text-base md:text-lg md:leading-[1.15]">
+                                The winning team will get ORIGIN Grant and one month of
+                                post-event coaching to support the next stage of their
+                                venture or research development
+                            </p>
+                        </div>
 
                     </div>
 
@@ -924,55 +1066,140 @@
         </div>
     </section>
 
+
+
     <section class="w-full bg-white px-6 py-12 sm:px-8 lg:px-16">
         <div class="mx-auto max-w-5xl">
             <!-- Heading -->
             <div class="mb-10 text-center">
-                <h2 class="text-5xl font-bold tracking-tight text-[#1646A0] sm:text-5xl">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-[#1646A0] sm:text-5xl">
                     Event Features
                 </h2>
             </div>
 
             <!-- Features Grid -->
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 
-                <!-- Feature 1 -->
-                <div class="group overflow-hidden rounded-xl bg-gray-200">
-                    <div class="aspect-[1.65/1]">
-                        <img src="https://placehold.co/800x380/e5e5e5/999999?text=Feature+1" alt="Event Feature 1"
-                            class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+                <!-- Card 1 -->
+                <div class="h-[220px] rounded-xl p-[30px]
+               bg-gradient-to-b from-[#d1e2f1] via-[#6da3d5] to-[#005bb5]
+               text-white flex flex-col">
+                    <div>
+                        <span class="inline-block bg-white/80 text-[#174e86]
+                   text-[12px] font-bold tracking-wide
+                   px-2 py-1 rounded-md">
+                            COMPETITION
+                        </span>
                     </div>
+
+                    <h3 class="mt-2 text-2xl leading-[1.15]
+                 font-bold">
+                        Project Pitch<br />
+                        Competition
+                    </h3>
+
+                    <p class="mt-auto
+                 text-[12px] leading-[1.25]
+                 font-light">
+                        This competition provides students with the opportunity to present
+                        innovative business ideas, research, or other projects to a panel
+                        of industry professionals. They will receive constructive feedback
+                        that strengthens their entrepreneurial and problem-solving capabilities.
+                    </p>
                 </div>
 
-                <!-- Feature 2 -->
-                <div class="group overflow-hidden rounded-xl bg-gray-200">
-                    <div class="aspect-[1.65/1]">
-                        <img src="https://placehold.co/800x380/e5e5e5/999999?text=Feature+2" alt="Event Feature 2"
-                            class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+
+                <!-- Card 2 -->
+                <div class="h-[220px] rounded-xl p-[30px]
+               bg-gradient-to-b from-[#d1e2f1] via-[#6da3d5] to-[#005bb5]
+               text-white flex flex-col">
+                    <div>
+                        <span class="inline-block bg-[#064c9d] text-white
+                   text-[12px] font-bold tracking-wide
+                   px-2 py-1 rounded-md">
+                            EXHIBITION
+                        </span>
                     </div>
+
+                    <h3 class="mt-2 text-2xl leading-[1.15]
+                 font-bold">
+                        Project Showcase<br />
+                        Exhibition
+                    </h3>
+
+                    <p class="mt-auto
+                 text-[12px] leading-[1.25]
+                 font-light">
+                        An interactive exhibition where participants showcase their
+                        prototypes or even sell their products through dedicated booths.
+                        This encourages direct engagement between students, industry
+                        representatives, and visitors, creating opportunities for feedback,
+                        networking, collaboration, and visibility for student-led innovations.
+                    </p>
                 </div>
 
-                <!-- Feature 3 -->
-                <div class="group overflow-hidden rounded-xl bg-gray-200">
-                    <div class="aspect-[1.65/1]">
-                        <img src="https://placehold.co/800x380/e5e5e5/999999?text=Feature+3" alt="Event Feature 3"
-                            class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+
+                <!-- Card 3 -->
+                <div class="h-[220px] rounded-xl p-[30px]
+               bg-gradient-to-b from-[#d1e2f1] via-[#6da3d5] to-[#005bb5]
+               text-white flex flex-col">
+                    <div>
+                        <span class="inline-block bg-[#064c9d] text-white
+                   text-[12px] font-bold tracking-wide
+                   px-2 py-1 rounded-md">
+                            TALK
+                        </span>
                     </div>
+
+                    <h3 class="mt-2 text-2xl leading-[1.15]
+                 font-bold">
+                        Inspiring Talk &<br />
+                        Knowledge Sharing
+                    </h3>
+
+                    <p class="mt-auto
+                 text-[12px] leading-[1.25]
+                 font-light">
+                        A session featuring professionals who share their experiences,
+                        insights, and perspectives on innovation, entrepreneurship,
+                        leadership, and career development. This session is designed to
+                        broaden participants' perspectives and inspire future aspirations.
+                    </p>
                 </div>
 
-                <!-- Feature 4 -->
-                <div class="group overflow-hidden rounded-xl bg-gray-200">
-                    <div class="aspect-[1.65/1]">
-                        <img src="https://placehold.co/800x380/e5e5e5/999999?text=Feature+4" alt="Event Feature 4"
-                            class="h-full w-full object-cover transition duration-300 group-hover:scale-105">
+
+                <!-- Card 4 -->
+                <div class="h-[220px] rounded-xl p-[30px] bg-gradient-to-b from-[#d1e2f1] via-[#6da3d5] to-[#005bb5]
+                text-white flex flex-col">
+                    <div>
+                        <span class="inline-block bg-white/80 text-[#174e86]
+                   text-[12px] font-bold tracking-wide
+                   px-2 py-1 rounded-md">
+                            CHARITY
+                        </span>
                     </div>
+
+                    <h3 class="mt-2 text-2xl leading-[1.15]
+                 font-bold">
+                        Fundraising for<br />
+                        School or Library
+                    </h3>
+
+                    <p class="mt-auto
+                 text-[12px] leading-[1.25]
+                 font-light">
+                        As part of its social impact commitment, proceeds from the event
+                        will be allocated to the revitalization of school or library,
+                        helping improve access to quality learning spaces and resources
+                        for local communities.
+                    </p>
                 </div>
 
             </div>
 
             <!-- Bottom Description -->
             <div class="mx-auto mt-10 max-w-2xl text-center">
-                <p class="text-sm font-light italic leading-relaxed text-[#1646A0] sm:text-base">
+                <p class="text-sm font-semibold italic leading-relaxed text-[#1646A0] sm:text-base">
                     Through this initiative, every participant, partner, and attendee contributes to
                     strengthening educational opportunities for future generations.
                 </p>
@@ -981,10 +1208,12 @@
         </div>
     </section>
 
-    <section class="max-w-5xl mx-auto py-20">
+
+
+    <section class="max-w-6xl mx-auto py-20">
         <!-- Heading -->
         <div class="mb-10 text-center">
-            <h2 class="text-5xl font-bold tracking-tight text-[#1646A0] sm:text-5xl">
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-[#1646A0] sm:text-5xl">
                 Past Projects
             </h2>
         </div>
@@ -996,9 +1225,26 @@
                         <li class="splide__slide">
                             <div class="card">
                                 <div class="flex justify-center relative z-0">
-                                    <div class="h-full -mb-[25%]">
-                                        <img src="img/ORIGIN/judge-1.png" alt="THE ORIGIN" class="w-full object-cover"
+                                    <div class="h-full">
+                                        <img src="img/ORIGIN/project-1.png" alt="THE ORIGIN" class="w-full object-cover md:h-full h-[250px] rounded-xl"
                                             loading="lazy">
+
+                                        <div class="flex items-center justify-between gap-2 mt-2 mb-2">
+                                            <div class="uppercase text-base font-semibold text-[#0E1A3A]">
+                                                Temuhara
+                                            </div>
+                                            <div
+                                                class="bg-[#E7ECFB] rounded-xl py-1 px-2 text-[10px] uppercase font-normal">
+                                                Business
+                                            </div>
+                                        </div>
+                                        <p class="font-light text-[12px] text-gray-600 mb-2">
+                                            A skincare and bodycare brand rooted in Indonesian herbal traditions,
+                                            turning native plants into gentle, locally sourced products.
+                                        </p>
+                                        <p class="font-normal text-[12px] text-[#0E1A3A]">
+                                            Unaisa ◦ Brand
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -1006,9 +1252,26 @@
                         <li class="splide__slide">
                             <div class="card">
                                 <div class="flex justify-center relative z-0">
-                                    <div class="h-full -mb-[25%]">
-                                        <img src="img/ORIGIN/judge-2.png" alt="THE ORIGIN" class="w-full object-cover"
+                                    <div class="h-full">
+                                        <img src="img/ORIGIN/project-2.png" alt="THE ORIGIN" class="w-full object-cover md:h-full h-[250px] rounded-xl"
                                             loading="lazy">
+
+                                        <div class="flex items-center justify-between gap-2 mt-2 mb-2">
+                                            <div class="uppercase text-base font-semibold text-[#0E1A3A]">
+                                                FlexAid
+                                            </div>
+                                            <div
+                                                class="bg-[#E7ECFB] rounded-xl py-1 px-2 text-[10px] uppercase font-normal">
+                                                Science & Tech
+                                            </div>
+                                        </div>
+                                        <p class="font-light text-[12px] text-gray-600 mb-2">
+                                            A low-cost, customizable mechanical arm for assistive use, showing how
+                                            engineering can serve inclusive design.
+                                        </p>
+                                        <p class="font-normal text-[12px] text-[#0E1A3A]">
+                                            Ethan ◦ Prototype
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -1016,9 +1279,26 @@
                         <li class="splide__slide">
                             <div class="card">
                                 <div class="flex justify-center relative z-0">
-                                    <div class="h-full -mb-[25%]">
-                                        <img src="img/ORIGIN/judge-3.png" alt="THE ORIGIN" class="w-full object-cover"
+                                    <div class="h-full">
+                                        <img src="img/ORIGIN/project-3.png" alt="THE ORIGIN" class="w-full object-cover md:h-full h-[250px] rounded-xl"
                                             loading="lazy">
+
+                                        <div class="flex items-center justify-between gap-2 mt-2 mb-2">
+                                            <div class="uppercase text-[14px] font-semibold text-[#0E1A3A]">
+                                                Pedal Power Bicycle Generator
+                                            </div>
+                                            <div
+                                                class="bg-[#E7ECFB] rounded-xl py-1 px-2 text-[10px] uppercase font-normal">
+                                                Engineering
+                                            </div>
+                                        </div>
+                                        <p class="font-light text-[12px] text-gray-600 mb-2">
+                                            A bicycle that turns pedaling into electricity, solving three problems at
+                                            once: staying fit, generating clean energy, and backup power during outages.
+                                        </p>
+                                        <p class="font-normal text-[12px] text-[#0E1A3A]">
+                                            Mellvin C. ◦ Grade 12
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -1030,37 +1310,405 @@
     </section>
 
 
-    <!-- Footer  -->
-    <section>
-        <div class="max-w-6xl mx-auto text-start py-10">
-            <div class="flex md:flex-nowrap flex-wrap items-center gap-3">
-                <div class="md:w-1/3 w-full md:text-start text-center">
-                    <a href="#top">
-                        <img src="img/eduall.png" alt="EduALL" class="h-8 w-auto inline-block -ml-1">
-                    </a>
+    <section class="max-w-6xl mx-auto md:py-20 py-10 scroll-mt-10 md:px-0 px-5" id="event">
+        <!-- Heading -->
+        <div class="mb-10 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-[#1646A0] sm:text-5xl">
+                Event Rundown
+            </h2>
+        </div>
+        <div class="relative mx-auto w-full max-w-[650px]
+           overflow-hidden rounded-2xl
+           bg-gradient-to-b from-[#e5f2fb] via-[#eef7fc] to-white
+           px-5 py-11">
+            <!-- Schedule -->
+            <div class="relative z-10 mx-auto max-w-[550px]">
+
+                <!-- Item -->
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        10.15–10.45
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-white
+                 text-[12px] md:text-[15px] font-medium text-[#1745a8]">
+                        Opening
+                    </div>
                 </div>
-                <div class="md:w-1/3 w-full">
-                    <div class="flex gap-5 justify-center">
-                        <a href="mailto:info@eduall.com"
-                            class="rounded-full p-3 bg-gray-800 w-10 h-10 flex justify-center items-center">
-                            <i class="ri-mail-line text-2xl text-white"></i>
-                        </a>
-                        <a href="https://www.instagram.com/eduall.official/" target="_blank"
-                            class="rounded-full p-3 bg-gray-800 w-10 h-10 flex justify-center items-center">
-                            <i class="ri-instagram-line text-2xl text-white"></i>
-                        </a>
-                        <a href="https://id.linkedin.com/company/edu-all-official" target="_blank"
-                            class="rounded-full p-3 bg-gray-800 w-10 h-10 flex justify-center items-center">
-                            <i class="ri-linkedin-box-fill text-2xl text-white"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@eduall.official" target="_blank"
-                            class="rounded-full p-3 bg-gray-800 w-10 h-10 flex justify-center items-center">
-                            <i class="ri-youtube-line text-2xl text-white"></i>
+
+
+                <!-- Item -->
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        11.00–12.00
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-[#123fa7]
+                 text-[12px] md:text-[15px] font-semibold text-white">
+                        Talk (incl. Q&A)
+                    </div>
+                </div>
+
+
+                <!-- Item -->
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        12.00–13.00
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-white
+                 text-[12px] md:text-[15px] font-medium text-[#1745a8]">
+                        Break (1hr)
+                    </div>
+                </div>
+
+
+                <!-- Item -->
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        13.15–15.10
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-[#123fa7]
+                 text-[12px] md:text-[15px] font-semibold text-white">
+                        Finalist 1–4 Pitching & Q&A
+                    </div>
+                </div>
+
+
+                <!-- Item -->
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        15.10–15.35
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-white
+                 text-[12px] md:text-[15px] font-medium text-[#1745a8]">
+                        Break (25 min)
+                    </div>
+                </div>
+
+
+                <!-- Item -->
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        15.45–17.40
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-[#123fa7]
+                 text-[12px] md:text-[15px] font-semibold text-white">
+                        Finalist 5–8 Pitching & Q&A
+                    </div>
+                </div>
+
+
+                <!-- Item -->
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        17.45–18.45
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-[#123fa7]
+                 text-[12px] md:text-[15px] font-semibold text-white">
+                        Talk (incl. Q&A)
+                    </div>
+                </div>
+
+
+                <!-- Item -->
+                <div class="flex items-center gap-4 mb-2">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        18.45–19.00
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-white
+                 text-[12px] md:text-[15px] font-medium text-[#1745a8]">
+                        Break (15 min)
+                    </div>
+                </div>
+
+
+                <!-- Final Item -->
+                <div class="flex items-center gap-4">
+                    <div class="w-1/4 text-start text-[12px] md:text-lg font-semibold text-orange-500">
+                        19.00–19.30
+                    </div>
+
+                    <div class="w-3/4 flex h-9 items-center justify-center
+                 rounded-xl bg-[#70bddf]
+                 text-[12px] md:text-[15px] font-semibold text-white">
+                        Winner Announcement & Closing
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-10 md:py-20 bg-gradient-to-b from-white to-[#D0E6F5]/20 scroll-mt-10" id="past_event">
+        <div class="max-w-5xl mx-auto">
+            <!-- Heading -->
+            <div class="mb-10 md:text-start text-center">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-[#1646A0] sm:text-5xl">
+                    Previous Event
+                </h2>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto md:px-5 px-10">
+            <div class="px-0 md:px-10 mt-10">
+                <div id="previous_event" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <div class="card">
+                                    <div class="flex justify-center relative z-0">
+                                        <div class="flex md:flex-nowrap flex-wrap justify-between items-center w-full md:gap-20 gap-12">
+                                            <div class="w-full md:w-1/2">
+                                                <img src="img/ORIGIN/event-1.png" alt="THE ORIGIN"
+                                                    class="w-full object-cover" loading="lazy">
+                                            </div>
+                                            <div class="w-full md:w-1/2">
+                                                <div class="md:text-start text-center">
+                                                    <h3 class="text-xl md:text-2xl font-normal mb-5">
+                                                        The Cornerstone 2026
+                                                    </h3>
+
+                                                    <p class="text-[#1B49B2] mb-2 text-sm md:text-base font-bold">
+                                                        Public Event &nbsp; | &nbsp; 1017 registrants
+                                                    </p>
+                                                    <p class="font-light text-sm md:text-base text-gray-600 mb-3">
+                                                        The Cornerstone is designed to connect students with educators,
+                                                        professionals, and industry leaders through thought-provoking
+                                                        discussions and meaningful networking experiences on the future
+                                                        of AI — channeling proceeds to support quality learning
+                                                        opportunities in underserved communities in Aceh Utara.
+                                                    </p>
+
+                                                    <a href="https://thecornerstone.edu-all.com" target="_blank"
+                                                        class="bg-blue-500 py-1 px-3 text-sm font-light text-white rounded-xl hover:bg-blue-700">
+                                                        Explore Event
+
+                                                        <i class="ri ri-arrow-right-line ml-3"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide">
+                                <div class="card">
+                                    <div class="flex justify-center relative z-0">
+                                        <div class="flex md:flex-nowrap flex-wrap justify-between items-center w-full md:gap-20 gap-10">
+                                            <div class="w-full md:w-1/2">
+                                                <img src="img/ORIGIN/event-2.png" alt="THE ORIGIN"
+                                                    class="w-full object-cover" loading="lazy">
+                                            </div>
+                                            <div class="w-full md:w-1/2">
+                                                <div class="md:text-start text-center">
+                                                    <h3 class="text-xl md:text-2xl font-normal mb-1">
+                                                        STEM+ Wonderlab 2025
+                                                    </h3>
+                                                    <p class="text-lg md:text-xl font-normal mb-3">
+                                                        In collaboration with Indonesia Mengajar
+                                                    </p>
+
+                                                    <p class="text-[#1B49B2] mb-2 text-sm md:text-base font-bold">
+                                                        Curated Invitation Event &nbsp; | &nbsp; 359 registrants
+                                                    </p>
+                                                    <p class="font-light text-sm md:text-base text-gray-600 mb-3">
+                                                        STEM+ Wonderlab 2025 is designed to transform students' passions
+                                                        into meaningful impact. The event highlights the innovative work
+                                                        of mentees in an engaging, interactive format where attendees
+                                                        can vote for their favorite projects. The initiative channels
+                                                        its proceeds to support education through Indonesia Mengajar.
+                                                    </p>
+
+                                                    <a href="https://stemwonderlab.edu-all.com/" target="_blank"
+                                                        class="bg-blue-500 py-1 px-3 text-sm font-light text-white rounded-xl hover:bg-blue-700">
+                                                        Explore Event
+
+                                                        <i class="ri ri-arrow-right-line ml-3"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide">
+                                <div class="card">
+                                    <div class="flex justify-center relative z-0">
+                                        <div class="flex md:flex-nowrap flex-wrap justify-between items-center w-full md:gap-20 gap-10">
+                                            <div class="w-full md:w-1/2">
+                                                <img src="img/ORIGIN/event-3.png" alt="THE ORIGIN"
+                                                    class="w-full object-cover" loading="lazy">
+                                            </div>
+                                            <div class="w-full md:w-1/2">
+                                                <div class="md:text-start text-center">
+                                                    <h3 class="text-xl md:text-2xl font-normal mb-1">
+                                                        A Wishful Market 2025
+                                                    </h3>
+                                                    <p class="text-lg md:text-xl font-normal mb-3">
+                                                        In collaboration with Make-A-Wish Indonesia
+                                                    </p>
+
+                                                    <p class="text-[#1B49B2] mb-2 text-base font-normal">
+                                                        Curated Invitation Event &nbsp; | &nbsp; 306 registrants
+                                                    </p>
+                                                    <p class="font-light text-base text-gray-600 mb-2">
+                                                        A Wishful Market is designed to empower students to become
+                                                        future
+                                                        changemakers by combining entrepreneurship and social impact. In
+                                                        a
+                                                        vibrant bazaar format, mentee-led projects are showcased and
+                                                        sold to
+                                                        attendees. A portion of the proceeds is donated to support
+                                                        children
+                                                        battling critical illnesses.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="splide__slide">
+                                <div class="card">
+                                    <div class="flex justify-center relative z-0">
+                                        <div class="flex md:flex-nowrap flex-wrap justify-between items-center w-full md:gap-20 gap-10">
+                                            <div class="w-full md:w-1/2">
+                                                <img src="img/ORIGIN/event-4.png" alt="THE ORIGIN"
+                                                    class="w-full object-cover" loading="lazy">
+                                            </div>
+                                            <div class="w-full md:w-1/2">
+                                                <div class="md:text-start text-center">
+                                                    <h3 class="text-xl md:text-2xl font-normal mb-1">
+                                                        STEM+ Wonderlab 2023
+                                                    </h3>
+                                                    <p class="text-xl font-normal mb-5">
+                                                        In collaboration with Indonesia Mengajar
+                                                    </p>
+
+                                                    <p class="text-[#1B49B2] mb-2 text-base font-normal">
+                                                        Public Event &nbsp; | &nbsp; 927 registrants
+                                                    </p>
+                                                    <p class="font-light text-base text-gray-600 mb-2">
+                                                        This competition provides students with the opportunity to
+                                                        present innovative business ideas, research, or other projects
+                                                        to a panel of industry professionals, receiving constructive
+                                                        feedback that strengthens their entrepreneurial and
+                                                        problem-solving capabilities.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section
+        class="py-10 md:py-20 bg-gradient-to-b from-[#D0E6F5]/20 to-[#66B4E1] md:h-[100vh] relative overflow-hidden scroll-mt-10"
+        id="apply">
+        <img src="img/ORIGIN/bg.png" alt="The ORIGIN" class="w-full h-full absolute left-0 top-0 md:scale-[1.5] scale-[5]">
+
+        <div class="max-w-5xl mx-auto">
+            <div class="max-w-xl mt-10 text-center md:text-start">
+                <h2 class="text-3xl md:text-6xl font-bold text-[#0D38A1] leading-[1.3] tracking-wide">
+                    Have an idea <br> worth building?
+                </h2>
+            </div>
+            <div class="md:h-[300px] h-auto relative overflow-hidden">
+                <div class="flex items-center h-full justify-around max-w-4xl mx-auto gap-10">
+                    <div class="w-1/4">
+                        <img src="img/ORIGIN/apply-1.png" alt="ORIGIN" class="w-full">
+                    </div>
+                    <div class="w-1/4">
+                        <img src="img/ORIGIN/apply-2.png" alt="ORIGIN" class="w-full">
+                    </div>
+                    <div class="w-1/4">
+                        <img src="img/ORIGIN/apply-3.png" alt="ORIGIN" class="w-full">
+                    </div>
+                    <div class="w-1/4">
+                        <img src="img/ORIGIN/apply-4.png" alt="ORIGIN" class="w-full">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="md:pl-[22%]">
+                <div class="flex md:flex-nowrap flex-wrap items-center md:justify-between justify-center gap-10">
+                    <div class="md:w-[60%] w-full">
+                        <p class="text-xl font-bold text-white text-center md:text-start">
+                            Join ORIGIN and turn your research, business idea, or passion project into something real.
+                        </p>
+                    </div>
+
+                    <div class="md:w-[20%] w-full flex md:justify-start justify-center">
+                        <a href="#" class="bg-[#1B49B2] text-white rounded-xl py-2 px-4 cursor-pointer">
+                            APPLY NOW
+                            <i class="ri ri-arrow-right-line ml-3"></i>
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/3 w-full md:text-end text-center md:text-base text-lg font-light">
-                    Copyright @ 2026 EduALL, All rights reserved.
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer  -->
+    <section>
+        <div class="text-start py-10 bg-[#00003F]">
+            <div class="max-w-6xl mx-auto  ">
+                <div class="flex md:flex-nowrap flex-wrap items-center gap-3">
+                    <div class="md:w-1/3 w-full md:text-start text-center">
+                        <a href="#top">
+                            <img src="img/ORIGIN/eduall-white.png" alt="EduALL" class="h-8 w-auto inline-block -ml-1">
+                        </a>
+                    </div>
+                    <div class="md:w-1/3 w-full">
+                        <div class="flex gap-5 justify-center">
+                            <a href="mailto:info@eduall.com"
+                                class="rounded-full p-3 bg-gray-50 w-10 h-10 flex justify-center items-center">
+                                <i class="ri-mail-line text-2xl text-blue-800"></i>
+                            </a>
+                            <a href="https://www.instagram.com/eduall.official/" target="_blank"
+                                class="rounded-full p-3 bg-gray-50 w-10 h-10 flex justify-center items-center">
+                                <i class="ri-instagram-line text-2xl text-blue-800"></i>
+                            </a>
+                            <a href="https://id.linkedin.com/company/edu-all-official" target="_blank"
+                                class="rounded-full p-3 bg-gray-50 w-10 h-10 flex justify-center items-center">
+                                <i class="ri-linkedin-box-fill text-2xl text-blue-800"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@eduall.official" target="_blank"
+                                class="rounded-full p-3 bg-gray-50 w-10 h-10 flex justify-center items-center">
+                                <i class="ri-youtube-line text-2xl text-blue-800"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/3 w-full md:text-end text-center md:text-base text-lg font-light text-white">
+                        Copyright @ 2026 EduALL, All rights reserved.
+                    </div>
                 </div>
             </div>
         </div>
@@ -1079,21 +1727,50 @@
     </script>
 
     <script>
-        let slides = document.querySelectorAll('.slide-banner');
-        let index = 0;
+        // Target: 21 November 2026, 00:00 WIB
+        const targetDate = new Date("2026-11-21T00:00:00+07:00");
 
-        function showSlide() {
-            slides.forEach((slide) => slide.classList.remove('active'));
-            slides[index].classList.add('active');
+        function updateCountdown() {
+            const now = new Date();
+            const difference = targetDate - now;
 
-            index++;
-            if (index >= slides.length) index = 0;
+            if (difference <= 0) {
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(
+                (difference / (1000 * 60 * 60)) % 24
+            );
+            const minutes = Math.floor(
+                (difference / (1000 * 60)) % 60
+            );
+            const seconds = Math.floor(
+                (difference / 1000) % 60
+            );
+
+            document.getElementById("days").textContent =
+                String(days).padStart(2, "0");
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
         }
 
-        setInterval(showSlide, 5000); // ganti slide tiap 5 detik
+        // Update immediately
+        updateCountdown();
 
-        // tampilkan pertama kali
-        showSlide();
+        // Update every second
+        setInterval(updateCountdown, 1000);
     </script>
 
     <script>
@@ -1109,24 +1786,20 @@
                 drag: false,
                 arrows: true,
                 pagination: false,
-                fixedWidth: '320px',
-                fixedHeight: '400px',
+                width: '100%',
+                height: '100%',
                 gap: '1rem',
                 padding: '5%',
-
                 breakpoints: {
-                    1024: {
-                        perPage: 2,
-                        fixedWidth: '300px',
-                        gap: '1rem',
-                        padding: '3%',
-                    },
-
-                    768: {
+                    720: {
                         perPage: 1,
-                        fixedWidth: '280px',
-                        gap: '1rem',
-                        padding: '2%',
+                        focus: 'center',
+                        autoplay: false,
+                        fixedWidth: '100%',
+                        width: '100%',
+                        height: '100%',
+                        padding: '0',
+                        gap: '0',
                     },
                 },
             });
@@ -1164,25 +1837,7 @@
                         1
                     );
 
-                    /*
-                     * =========================
-                     * SCALE
-                     * =========================
-                     *
-                     * Center  = 1
-                     * Samping = 0.6
-                     */
                     const scale = 1 - (progress * 0.4);
-
-
-                    /*
-                     * =========================
-                     * OPACITY
-                     * =========================
-                     *
-                     * Center  = 1
-                     * Samping = 0.4
-                     */
                     const opacity = 1 - (progress * 0.6);
 
 
@@ -1212,13 +1867,104 @@
                 drag: false,
                 arrows: true,
                 pagination: false,
-                fixedWidth: '320px',
+                fixedWidth: '340px',
                 fixedHeight: 'auto',
                 gap: '1rem',
                 padding: '5%',
             });
 
             slider.mount();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const slider = new Splide('#previous_event', {
+                type: 'loop',
+                perPage: 1,
+                focus: 'center',
+                autoplay: true,
+                interval: 4000,
+                speed: 600,
+                drag: false,
+                arrows: true,
+                pagination: false,
+                fixedWidth: '100%',
+                fixedHeight: 'auto',
+                gap: '0',
+            });
+
+            slider.mount();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const steps = document.querySelectorAll('.journey-step');
+
+            function setMaxHeight(desc) {
+                desc.style.maxHeight = desc.scrollHeight + 'px';
+            }
+
+            function resetMaxHeight(desc) {
+                desc.style.maxHeight = '0px';
+            }
+
+            function openStep(desc) {
+                desc.classList.add('open');
+                setMaxHeight(desc);
+            }
+
+            function closeAll() {
+                steps.forEach(otherStep => {
+                    const otherDesc = otherStep.querySelector('.description');
+                    otherDesc.classList.remove('open');
+                    resetMaxHeight(otherDesc);
+                });
+            }
+
+            // Buka item pertama secara default
+            const firstDesc = steps[0]?.querySelector('.description');
+            if (firstDesc) {
+                firstDesc.classList.add('open');
+                setMaxHeight(firstDesc);
+            }
+
+            steps.forEach(step => {
+                const h2 = step.querySelector('h2');
+                const desc = step.querySelector('.description');
+
+                h2.addEventListener('click', () => {
+                    const isOpen = desc.classList.contains('open');
+
+                    // Tutup semua
+                    closeAll();
+
+                    // Jika yang diklik belum terbuka, buka
+                    if (!isOpen) {
+                        openStep(desc);
+                    }
+                });
+
+                // Trigger hover hanya di desktop (pointer halus)
+                if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+                    h2.addEventListener('mouseenter', () => {
+                        closeAll();
+                        openStep(desc);
+                    });
+                }
+            });
+
+            // Update max-height saat resize agar tetap presisi
+            window.addEventListener('resize', () => {
+                steps.forEach(step => {
+                    const desc = step.querySelector('.description');
+                    if (desc.classList.contains('open')) {
+                        setMaxHeight(desc);
+                    }
+                });
+            });
         });
     </script>
 </body>
