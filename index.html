@@ -89,6 +89,19 @@
             cursor: pointer;
             user-select: none;
         }
+
+        .reel-track {
+            display: flex;
+            flex-direction: column;
+            will-change: transform;
+        }
+
+        .reel-track img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 
@@ -1634,47 +1647,87 @@
     <section
         class="py-10 md:py-20 bg-gradient-to-b from-[#D0E6F5]/20 to-[#66B4E1] md:h-[100vh] relative overflow-hidden scroll-mt-10"
         id="apply">
-        <img src="img/ORIGIN/bg.png" alt="The ORIGIN"
-            class="w-full h-full absolute left-0 top-0 md:scale-[1.5] scale-[5]">
 
         <div class="max-w-5xl mx-auto">
-            <div class="max-w-xl mt-10 text-center md:text-start">
+            <div class="mt-10 text-center">
                 <h2 class="text-3xl md:text-6xl font-bold text-[#0D38A1] leading-[1.3] tracking-wide">
                     Have an idea <br> worth building?
                 </h2>
             </div>
-            <div class="md:h-[300px] h-auto relative overflow-hidden">
-                <div class="flex items-center h-full justify-around max-w-4xl mx-auto gap-10">
-                    <div class="w-1/4">
-                        <img src="img/ORIGIN/apply-1.png" alt="ORIGIN" class="w-full">
+            <div class="h-[300px] relative overflow-hidden">
+                <div id="slot-machine" class="flex items-center justify-around max-w-4xl mx-auto gap-10 h-full">
+                    <div class="reel w-1/4 h-full overflow-hidden">
+                        <div class="reel-track">
+                            <img src="img/ORIGIN/apply-1.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-2.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-3.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-4.png" alt="ORIGIN">
+
+                            <img src="img/ORIGIN/apply-1.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-2.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-3.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-4.png" alt="ORIGIN">
+                        </div>
                     </div>
-                    <div class="w-1/4">
-                        <img src="img/ORIGIN/apply-2.png" alt="ORIGIN" class="w-full">
+
+                    <div class="reel w-1/4 h-full overflow-hidden">
+                        <div class="reel-track">
+                            <img src="img/ORIGIN/apply-2.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-3.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-4.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-1.png" alt="ORIGIN">
+
+                            <img src="img/ORIGIN/apply-2.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-3.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-4.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-1.png" alt="ORIGIN">
+                        </div>
                     </div>
-                    <div class="w-1/4">
-                        <img src="img/ORIGIN/apply-3.png" alt="ORIGIN" class="w-full">
+
+                    <div class="reel w-1/4 h-full overflow-hidden">
+                        <div class="reel-track">
+                            <img src="img/ORIGIN/apply-3.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-4.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-1.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-2.png" alt="ORIGIN">
+
+                            <img src="img/ORIGIN/apply-3.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-4.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-1.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-2.png" alt="ORIGIN">
+                        </div>
                     </div>
-                    <div class="w-1/4">
-                        <img src="img/ORIGIN/apply-4.png" alt="ORIGIN" class="w-full">
+
+                    <div class="reel w-1/4 h-full overflow-hidden">
+                        <div class="reel-track">
+                            <img src="img/ORIGIN/apply-4.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-1.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-2.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-3.png" alt="ORIGIN">
+
+                            <img src="img/ORIGIN/apply-4.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-1.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-2.png" alt="ORIGIN">
+                            <img src="img/ORIGIN/apply-3.png" alt="ORIGIN">
+                        </div>
                     </div>
                 </div>
-
             </div>
-
-            <div class="md:pl-[22%]">
-                <div class="flex md:flex-nowrap flex-wrap items-center md:justify-between justify-center gap-10">
-                    <div class="md:w-[60%] w-full">
-                        <p class="text-xl font-bold text-white text-center md:text-start">
-                            Join ORIGIN and turn your research, business idea, or passion project into something real.
-                        </p>
-                    </div>
-
-                    <div class="md:w-[20%] w-full flex md:justify-start justify-center">
+            <div class="">
+                <div class="flex flex-col items-center md:justify-between justify-center gap-10">
+                    <div class="w-full flex justify-center">
                         <a href="#" class="bg-[#1B49B2] text-white rounded-xl py-2 px-4 cursor-pointer">
                             APPLY NOW
                             <i class="ri ri-arrow-right-line ml-3"></i>
                         </a>
                     </div>
+
+                    <div class="w-full">
+                        <p class="text-xl font-bold text-white text-center">
+                            Join ORIGIN and turn your research, business idea, or passion project into something real.
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -1970,6 +2023,69 @@
                     }
                 });
             });
+        });
+    </script>
+
+    <script>
+        const reels = document.querySelectorAll(".reel");
+
+        const ITEM_HEIGHT = 300;
+        const TOTAL_ITEMS = 4;
+
+        const SPEED = 1800;
+
+        reels.forEach((reel, reelIndex) => {
+
+            const track = reel.querySelector(".reel-track");
+
+            let index = 0;
+
+            function move() {
+
+                index++;
+
+                track.style.transition = `
+            transform ${SPEED}ms ease-in-out
+        `;
+
+                track.style.transform = `
+            translateY(-${index * ITEM_HEIGHT}px)
+        `;
+
+                /*
+                 * Setelah bergerak ke duplicate apply-4,
+                 * reset ke apply-1 original.
+                 *
+                 * Karena gambar yang ditampilkan sama,
+                 * reset tidak terlihat.
+                 */
+                if (index === TOTAL_ITEMS) {
+
+                    setTimeout(() => {
+
+                        track.style.transition = "none";
+
+                        index = 0;
+
+                        track.style.transform =
+                            "translateY(0)";
+
+                        // force browser repaint
+                        track.offsetHeight;
+
+                    }, SPEED);
+                }
+            }
+
+            // masing-masing reel mulai sedikit berbeda
+            setTimeout(() => {
+
+                move();
+
+                setInterval(move, SPEED + 100);
+
+            }, reelIndex * 300);
+
         });
     </script>
 </body>
