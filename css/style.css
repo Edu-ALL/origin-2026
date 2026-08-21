@@ -101,7 +101,7 @@ body, h1, h2, h3, h4, h5, h6, p, div {
     width: 150px;
     /* Lebar area blur */
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    /* background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); */
     z-index: 20;
     /* Pastikan di atas slider */
 }
@@ -114,7 +114,7 @@ body, h1, h2, h3, h4, h5, h6, p, div {
     width: 150px;
     /* Lebar area blur */
     height: 100%;
-    background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    /* background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); */
     z-index: 20;
     /* Pastikan di atas slider */
 }
