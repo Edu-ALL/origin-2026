@@ -18,6 +18,26 @@
         content="ORIGIN gives students a stage to pitch their ideas, showcase what they've built, receive feedback from industry professionals, and connect with like-minded students. More than a competition, ORIGIN is a must-have stage for ambitious students to challenge their thinking, test their ideas, and discover ways to create impact.">
     <meta name="keywords" content="">
 
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1067393485185284');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1067393485185284&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
         #judge .card {
             width: 100%;
@@ -142,7 +162,8 @@
 
                 <!-- CTA Button -->
                 <div class="hidden md:block">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScBc37NuntNUNffKYo7svlHRLbpGfmJqSBYNOE1omxEwPyNcA/viewform" target="_blank"
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScBc37NuntNUNffKYo7svlHRLbpGfmJqSBYNOE1omxEwPyNcA/viewform"
+                        target="_blank"
                         class="bg-[#1B49B2]/90 hover:bg-[#1B49B2] text-white font-semibold py-2 px-4 rounded-xl text-sm transition-colors duration-300 uppercase">
                         Apply Now
                         <i class="ri-arrow-right-long-line ms-2"></i>
@@ -180,7 +201,8 @@
                 <a href="https://edu-all.com" target="_blank"
                     class="block text-gray-700 hover:text-blue-600 active:text-blue-600 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">EduALL</a>
                 <div class="pt-4 pb-2">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScBc37NuntNUNffKYo7svlHRLbpGfmJqSBYNOE1omxEwPyNcA/viewform" target="_blank"
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScBc37NuntNUNffKYo7svlHRLbpGfmJqSBYNOE1omxEwPyNcA/viewform"
+                        target="_blank"
                         class="block w-full text-center bg-[#1B49B2]/90 hover:bg-[#1B49B2] text-white font-semibold py-2 px-4 rounded-md text-base transition-colors duration-300">
                         APPLY NOW
                     </a>
@@ -312,7 +334,8 @@
                         </div>
 
                         <div class="w-md mx-auto mt-5">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScBc37NuntNUNffKYo7svlHRLbpGfmJqSBYNOE1omxEwPyNcA/viewform" target="_blank"
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScBc37NuntNUNffKYo7svlHRLbpGfmJqSBYNOE1omxEwPyNcA/viewform"
+                                target="_blank"
                                 class="bg-[#1B49B2]/90 hover:bg-[#1B49B2] text-lg md:text-xl py-2 px-5 text-white rounded-xl">
                                 Apply Now
                                 <i class="ri ri-arrow-right-line ml-2"></i>
@@ -1630,7 +1653,8 @@
             <div class="">
                 <div class="flex flex-col items-center md:justify-between justify-center gap-10">
                     <div class="w-full flex justify-center">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScBc37NuntNUNffKYo7svlHRLbpGfmJqSBYNOE1omxEwPyNcA/viewform" target="_blank"
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScBc37NuntNUNffKYo7svlHRLbpGfmJqSBYNOE1omxEwPyNcA/viewform"
+                            target="_blank"
                             class="bg-[#1B49B2]/90 hover:bg-[#1B49B2] text-white rounded-xl py-2 px-4 cursor-pointer">
                             APPLY NOW
                             <i class="ri ri-arrow-right-line ml-3"></i>
@@ -1687,6 +1711,17 @@
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('a[href*="forms.gle"], a[href*="docs.google.com/forms"]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    history.pushState({}, '', window.location.pathname + '?applied=true');
+                    fbq('track', 'PageView');
+                });
+            });
+        });
+    </script>
 
     <script>
         // Dapatkan elemen-elemen yang diperlukan
