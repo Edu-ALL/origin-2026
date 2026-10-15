@@ -38,6 +38,14 @@
             src="https://www.facebook.com/tr?id=1067393485185284&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
 
+    <script>
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest('a[href*="loket.com"]');
+            if (!link) return;
+            fbq('track', 'InitiateCheckout', { content_name: 'ORIGIN Ticket' });
+        });
+    </script>
+
     <style>
         #judge .card {
             width: 100%;
