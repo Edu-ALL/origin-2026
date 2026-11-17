@@ -15,31 +15,77 @@
     <meta name="keywords" content="">
 
     <style>
-        /* Native CSS hanya untuk background: gradient 4 lapis tidak terbaca jika ditulis sebagai utility Tailwind */
+        /* Native CSS hanya untuk background: gradient berlapis tidak terbaca jika ditulis sebagai utility Tailwind */
         .vote-bg {
             background:
-                radial-gradient(60% 55% at 100% 0%, rgba(196, 200, 188, .95) 0%, rgba(196, 200, 188, 0) 60%),
-                radial-gradient(70% 80% at 85% 45%, rgba(126, 196, 232, .95) 0%, rgba(126, 196, 232, 0) 70%),
-                radial-gradient(60% 60% at 0% 100%, #0a2fa6 0%, rgba(10, 47, 166, 0) 75%),
-                linear-gradient(120deg, #2f6fd0 0%, #4a86d4 45%, #6fb0e2 100%);
+                radial-gradient(45% 40% at 100% 0%, rgba(190, 196, 190, .9) 0%, rgba(190, 196, 190, 0) 70%),
+                radial-gradient(70% 70% at 0% 100%, #1f47b0 0%, rgba(31, 71, 176, 0) 75%),
+                linear-gradient(180deg, #86c3ea 0%, #74b4e4 22%, #5596db 55%, #4a86d2 100%);
             background-attachment: fixed;
         }
     </style>
 </head>
-<body class="vote-bg m-0 overflow-x-hidden text-white">
+<!--
+    --t : satuan ukuran header, judul & footer. Mengikuti tinggi layar, tetapi dibatasi lebar layar
+          supaya tidak kebesaran di layar potret (HP).
+-->
+<body class="vote-bg relative m-0 flex min-h-dvh flex-col overflow-x-hidden text-white [--t:min(1vh,1.1vw)]">
+    <!--
+        Dekorasi panel kaca (glassmorphism) di sisi kiri & kanan:
+        isi putih tembus pandang yang memudar, garis tepi terang, kilau di tepi atas,
+        bayangan lembut, dan blur pada apa pun yang ada di belakangnya.
+    -->
+    <div aria-hidden="true"
+        class="pointer-events-none fixed top-[42vh] -left-[calc(var(--t)*5)] h-[26vh] w-[calc(var(--t)*14)] rounded-[calc(var(--t)*3)] border border-white/50 bg-linear-to-br from-white/35 via-white/10 to-white/5 shadow-[0_8px_32px_rgba(20,50,140,.25),inset_0_1px_1px_rgba(255,255,255,.7),inset_0_-12px_24px_rgba(255,255,255,.08)] backdrop-blur-xl backdrop-saturate-120 max-lg:hidden">
+    </div>
+    <div aria-hidden="true"
+        class="pointer-events-none fixed top-[48vh] -right-[calc(var(--t)*5)] h-[26vh] w-[calc(var(--t)*14)] rounded-[calc(var(--t)*3)] border border-white/50 bg-linear-to-br from-white/35 via-white/10 to-white/5 shadow-[0_8px_32px_rgba(20,50,140,.25),inset_0_1px_1px_rgba(255,255,255,.7),inset_0_-12px_24px_rgba(255,255,255,.08)] backdrop-blur-xl backdrop-saturate-120 max-lg:hidden">
+    </div>
+
+    <header
+        class="relative z-10 flex flex-none items-center justify-between px-[calc(var(--t)*7)] pt-[calc(var(--t)*4.5)]">
+        <div class="flex items-center gap-[calc(var(--t)*.6)]">
+            <img src="img/ORIGIN/logo-blue.png" alt="ORIGIN" class="h-[max(14px,calc(var(--t)*2.4))] w-auto">
+            <span class="text-[length:max(8px,calc(var(--t)*1.3))] font-bold text-[#1b1464]">by</span>
+            <img src="img/eduall.png" alt="EduALL" class="h-[max(19px,calc(var(--t)*3.3))] w-auto">
+        </div>
+        <div class="flex items-center gap-[calc(var(--t)*1)]">
+            <span class="text-[length:max(8px,calc(var(--t)*1.3))] font-bold text-[#1a1a1a]">Powered by</span>
+            <img src="img/support-color/polytron.png" alt="Polytron" class="h-[max(20px,calc(var(--t)*3.4))] w-auto">
+        </div>
+    </header>
+
     <!--
         --n     : jumlah tim (diisi lewat JS)
         --row-h : tinggi satu baris, menyesuaikan tinggi layar & jumlah tim
     -->
     <main id="vote"
-        class="mx-auto flex min-h-dvh w-[min(92vw,150vh)] flex-col justify-center py-[4vh] [--n:7] [--row-h:clamp(44px,calc(66vh/var(--n)),120px)] max-sm:[--row-h:clamp(40px,calc(60vh/var(--n)),64px)]">
+        class="relative z-10 mx-auto flex w-[min(88vw,135vh)] flex-1 flex-col justify-center py-[calc(var(--t)*4)] [--n:7] [--row-h:clamp(36px,calc(45vh/var(--n)),110px)] max-sm:[--row-h:clamp(36px,calc(44vh/var(--n)),56px)]">
+        <!--
+            Judul berupa satu gambar (piala + logo ORIGIN + "VOTING RESULTS").
+            File-nya 2911x594 dengan tepi transparan; bagian yang terlihat 2681x255 mulai dari (140, 145).
+            <h1> berukuran sebesar bagian yang terlihat, lalu gambarnya digeser & diperbesar supaya
+            tepi transparannya tidak ikut memakan tempat. Jika gambar diganti, sesuaikan angka di bawah.
+        -->
         <h1
-            class="mb-[calc(var(--row-h)*.6)] text-center text-[length:calc(var(--row-h)*.46)] font-bold tracking-[.01em] uppercase">
-            Voting Results
+            class="relative mx-auto mb-[calc(var(--t)*5.3)] aspect-[2681/255] w-[min(100%,calc(var(--t)*119))]">
+            <img src="img/vote/origin-voting-results.png" alt="ORIGIN Voting Results"
+                class="absolute top-[-56.86%] left-[-5.22%] w-[108.58%] max-w-none">
         </h1>
 
         <ul id="vote-list" class="relative m-0 h-[calc(var(--row-h)*var(--n))] list-none p-0" aria-live="polite"></ul>
     </main>
+
+    <footer
+        class="relative z-10 flex-none border-t border-white/70 bg-linear-to-b from-[#dfeaf6] via-[#f6f2f5] via-30% to-[#f8f4f4] px-4 py-[calc(var(--t)*3.4)] text-center text-[#1c3c9c]">
+        <p class="m-0 text-[length:max(18px,calc(var(--t)*4.9))] leading-[1.15] font-bold text-balance uppercase">
+            Vote for your favorite ORIGIN project
+        </p>
+        <p
+            class="m-0 mt-[calc(var(--t)*1)] text-[length:max(12px,calc(var(--t)*2.7))] leading-snug font-bold text-balance">
+            by donating Rp10,000 per vote to help it win Fan Favorite and build a school in NTT.
+        </p>
+    </footer>
 
     <!--
         Cetakan satu baris kandidat (di-clone lewat JS).
@@ -49,7 +95,7 @@
     -->
     <ul hidden>
         <li id="vote-row-template" data-entering style="--i: 0"
-            class="group absolute inset-x-0 top-0 z-10 flex h-(--row-h) translate-y-[calc(var(--i)*var(--row-h))] items-center gap-[calc(var(--row-h)*.35)] transition-[translate,scale,opacity] duration-[900ms] ease-[cubic-bezier(.2,.8,.2,1)] data-entering:opacity-0 data-[move=down]:z-0 data-[move=down]:scale-[.97] data-[move=down]:opacity-80 data-[move=up]:z-20 data-[move=up]:scale-[1.04] motion-reduce:transition-none">
+            class="group absolute inset-x-0 top-0 z-10 flex h-(--row-h) translate-y-[calc(var(--i)*var(--row-h))] items-center gap-[calc(var(--row-h)*.6)] transition-[translate,scale,opacity] duration-[900ms] ease-[cubic-bezier(.2,.8,.2,1)] data-entering:opacity-0 data-[move=down]:z-0 data-[move=down]:scale-[.97] data-[move=down]:opacity-80 data-[move=up]:z-20 data-[move=up]:scale-[1.04] motion-reduce:transition-none">
             <div class="relative ml-[calc(var(--row-h)*.2)] h-[82%] min-w-0 flex-1">
                 <!--
                     --p    : persentase vote (0–100, diisi lewat JS)
@@ -58,20 +104,21 @@
                     berbanding lurus dengan persentasenya (0% = tanpa bar, 100% = track penuh).
                 -->
                 <div data-fill style="--p: 0"
-                    class="absolute inset-y-0 left-0 [--base:calc(var(--row-h)*1.65)] w-[calc(var(--base)_+_(100%_-_var(--base))_*_var(--p)_/_100)] rounded-[calc(var(--row-h)*.06)] bg-linear-to-r from-[#0b2a9e] via-[#2a5cc8] via-35% to-[#b7dbf3] transition-[width,box-shadow] duration-1000 ease-[cubic-bezier(.2,.8,.2,1)] group-data-[move=up]:shadow-[0_0_28px_rgba(255,255,255,.6)] motion-reduce:transition-none">
+                    class="absolute inset-y-0 left-0 [--base:calc(var(--row-h)*1.55)] w-[calc(var(--base)_+_(100%_-_var(--base))_*_var(--p)_/_100)] rounded-[calc(var(--row-h)*.06)] bg-linear-to-r from-white/95 via-white/70 via-40% to-[#8cc6ec]/80 transition-[width,box-shadow] duration-1000 ease-[cubic-bezier(.2,.8,.2,1)] group-data-[move=up]:shadow-[0_0_28px_rgba(255,255,255,.6)] motion-reduce:transition-none">
                 </div>
                 <img data-img alt="" hidden
                     class="absolute top-1/2 -left-[calc(var(--row-h)*.2)] h-[115%] w-[calc(var(--row-h)*1.55)] -translate-y-1/2 object-contain drop-shadow-[0_4px_8px_rgba(0,0,0,.25)]">
                 <span data-name
-                    class="absolute top-1/2 right-0 left-[calc(var(--row-h)*1.7)] -translate-y-1/2 truncate text-[length:calc(var(--row-h)*.25)] font-bold uppercase text-shadow-[0_1px_3px_rgba(11,42,158,.35)]"></span>
+                    class="absolute top-1/2 right-0 left-[calc(var(--row-h)*1.75)] -translate-y-1/2 truncate text-[length:calc(var(--row-h)*.42)] font-bold text-[#1c3c9c] uppercase"></span>
             </div>
-            <span data-pct
-                class="w-[3.6ch] flex-none text-[length:calc(var(--row-h)*.62)] leading-none font-bold tabular-nums">0%</span>
+            <!-- --num-w : lebar kolom angka, mengikuti angka terpanjang (diisi lewat JS) -->
+            <span data-value
+                class="w-(--num-w) flex-none text-[length:calc(var(--row-h)*.64)] leading-none font-bold text-[#1c3c9c] tabular-nums">0</span>
         </li>
     </ul>
 
     <div id="vote-status" role="status"
-        class="fixed right-4 bottom-3 rounded-full bg-black/35 px-2.5 py-1 text-xs font-semibold opacity-0 transition-opacity duration-300 data-visible:opacity-100">
+        class="fixed right-4 bottom-3 z-20 rounded-full bg-black/60 px-2.5 py-1 text-xs font-semibold opacity-0 transition-opacity duration-300 data-visible:opacity-100">
     </div>
 
     <script>
@@ -88,21 +135,34 @@
             // Lama efek perpindahan posisi (ms) — samakan dengan duration-[900ms] pada baris.
             const MOVE_DURATION = 100;
 
+            // Angka yang ditampilkan di kanan tiap baris:
+            //   'votes'   = jumlah vote (kolom Votes di sheet); bar tim teratas penuh,
+            //               bar tim lain sebanding dengan jumlah vote-nya terhadap tim teratas
+            //   'percent' = persentase; panjang bar mengikuti persentasenya
+            const DISPLAY_MODE = 'votes';
+
             const DEMO_RESULTS = [
-                { name: 'PROJECT TACTILE', percent: 99 },
-                { name: 'TIGA HATI BERBAGI', percent: 70 },
-                { name: 'BLOOMERS', percent: 65 },
-                { name: 'BAWAH 25', percent: 64 },
-                { name: 'KAPAW', percent: 44 },
-                { name: 'HYDROPPY', percent: 20 },
-                { name: 'SAHABATSEKOLAH', percent: 5 },
+                { name: 'PROJECT TACTILE', votes: 198, percent: 99 },
+                { name: 'TIGA HATI BERBAGI', votes: 140, percent: 70 },
+                { name: 'BLOOMERS', votes: 130, percent: 65 },
+                { name: 'BAWAH 25', votes: 128, percent: 64 },
+                { name: 'KAPAW', votes: 88, percent: 44 },
+                { name: 'HYDROPPY', votes: 40, percent: 20 },
+                { name: 'SAHABATSEKOLAH', votes: 10, percent: 5 },
             ];
+
+            const showVotes = DISPLAY_MODE === 'votes';
+
+            // 1250 -> "1.250" (mode votes) atau 64 -> "64%" (mode percent)
+            function formatValue(value) {
+                return showVotes ? value.toLocaleString('id-ID') : value + '%';
+            }
 
             const main = document.getElementById('vote');
             const list = document.getElementById('vote-list');
             const status = document.getElementById('vote-status');
             const template = document.getElementById('vote-row-template');
-            const rows = new Map(); // nama tim -> { el, fill, img, pct, index, shown, raf, moveTimer }
+            const rows = new Map(); // nama tim -> { el, fill, img, value, index, shown, raf, moveTimer }
 
             function setStatus(text) {
                 status.textContent = text;
@@ -128,7 +188,7 @@
                     el: el,
                     fill: el.querySelector('[data-fill]'),
                     img: img,
-                    pct: el.querySelector('[data-pct]'),
+                    value: el.querySelector('[data-value]'),
                     index: -1,
                     shown: 0,
                     raf: 0,
@@ -164,7 +224,7 @@
                     const t = Math.min(1, (now - start) / duration);
                     const eased = 1 - Math.pow(1 - t, 3);
                     row.shown = Math.round(from + (target - from) * eased);
-                    row.pct.textContent = row.shown + '%';
+                    row.value.textContent = formatValue(row.shown);
                     if (t < 1) row.raf = requestAnimationFrame(tick);
                 })(start);
             }
@@ -172,18 +232,29 @@
             function render(results) {
                 const sorted = results
                     .map(function (item, order) {
+                        const percent = Math.max(0, Math.min(100, Math.round(Number(item.percent) || 0)));
+                        const votes = Math.max(0, Math.round(Number(item.votes) || 0));
                         return {
                             name: String(item.name || '').trim(),
-                            percent: Math.max(0, Math.min(100, Math.round(Number(item.percent) || 0))),
-                            votes: Number(item.votes) || 0,
+                            value: showVotes ? votes : percent, // angka yang ditampilkan
+                            votes: votes,
                             image: String(item.image || '').trim(),
                             order: order,
                         };
                     })
                     .filter(function (item) { return item.name !== ''; })
                     .sort(function (a, b) {
-                        return b.percent - a.percent || b.votes - a.votes || a.order - b.order;
+                        return b.value - a.value || b.votes - a.votes || a.order - b.order;
                     });
+
+                // Skala bar: mode votes memakai vote tertinggi sebagai 100%, mode percent memakai 100.
+                const scale = showVotes ? Math.max(1, sorted.length ? sorted[0].value : 0) : 100;
+
+                // Lebar kolom angka mengikuti angka terpanjang supaya semua bar berakhir di garis yang sama.
+                const longest = sorted.reduce(function (max, item) {
+                    return Math.max(max, formatValue(item.value).length);
+                }, 2);
+                main.style.setProperty('--num-w', (showVotes ? longest + .4 : longest + .6) + 'ch');
 
                 const seen = new Set();
 
@@ -209,8 +280,8 @@
                     }
 
                     const apply = function () {
-                        row.fill.style.setProperty('--p', item.percent);
-                        animateNumber(row, item.percent);
+                        row.fill.style.setProperty('--p', (item.value / scale) * 100);
+                        animateNumber(row, item.value);
                     };
                     // baris baru: tunggu ter-render dulu supaya bar tumbuh dari 0
                     if (isNew) requestAnimationFrame(function () { requestAnimationFrame(apply); });
@@ -255,7 +326,8 @@
                 setStatus('Demo data — API_URL belum diisi');
                 setInterval(function () {
                     render(DEMO_RESULTS.map(function (item) {
-                        return { name: item.name, percent: Math.round(Math.random() * 100) };
+                        const votes = Math.round(Math.random() * 200);
+                        return { name: item.name, votes: votes, percent: Math.round(votes / 2) };
                     }));
                 }, POLL_INTERVAL);
             }
