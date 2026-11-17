@@ -51,8 +51,14 @@
         <li id="vote-row-template" data-entering style="--i: 0"
             class="group absolute inset-x-0 top-0 z-10 flex h-(--row-h) translate-y-[calc(var(--i)*var(--row-h))] items-center gap-[calc(var(--row-h)*.35)] transition-[translate,scale,opacity] duration-[900ms] ease-[cubic-bezier(.2,.8,.2,1)] data-entering:opacity-0 data-[move=down]:z-0 data-[move=down]:scale-[.97] data-[move=down]:opacity-80 data-[move=up]:z-20 data-[move=up]:scale-[1.04] motion-reduce:transition-none">
             <div class="relative ml-[calc(var(--row-h)*.2)] h-[82%] min-w-0 flex-1">
-                <div data-fill style="--pct: 0%"
-                    class="absolute inset-y-0 left-0 w-(--pct) min-w-[calc(var(--row-h)*1.65)] rounded-[calc(var(--row-h)*.06)] bg-linear-to-r from-[#0b2a9e] via-[#2a5cc8] via-35% to-[#b7dbf3] transition-[width,box-shadow] duration-1000 ease-[cubic-bezier(.2,.8,.2,1)] group-data-[move=up]:shadow-[0_0_28px_rgba(255,255,255,.6)] motion-reduce:transition-none">
+                <!--
+                    --p    : persentase vote (0–100, diisi lewat JS)
+                    --base : bagian bar di bawah gambar produk (selalu ada, bukan bagian dari nilai)
+                    Lebar bar = --base + p% dari sisa track, sehingga panjang bar setelah gambar
+                    berbanding lurus dengan persentasenya (0% = tanpa bar, 100% = track penuh).
+                -->
+                <div data-fill style="--p: 0"
+                    class="absolute inset-y-0 left-0 [--base:calc(var(--row-h)*1.65)] w-[calc(var(--base)_+_(100%_-_var(--base))_*_var(--p)_/_100)] rounded-[calc(var(--row-h)*.06)] bg-linear-to-r from-[#0b2a9e] via-[#2a5cc8] via-35% to-[#b7dbf3] transition-[width,box-shadow] duration-1000 ease-[cubic-bezier(.2,.8,.2,1)] group-data-[move=up]:shadow-[0_0_28px_rgba(255,255,255,.6)] motion-reduce:transition-none">
                 </div>
                 <img data-img alt="" hidden
                     class="absolute top-1/2 -left-[calc(var(--row-h)*.2)] h-[115%] w-[calc(var(--row-h)*1.55)] -translate-y-1/2 object-contain drop-shadow-[0_4px_8px_rgba(0,0,0,.25)]">
@@ -77,10 +83,10 @@
             const API_URL = 'https://script.google.com/macros/s/AKfycbxj8-Ox2HDH84H6v8roUAMmW84cMlLhUmS6mRouHRKX8jetePMH9SeccMEG6kH1CjF5/exec';
 
             // Jeda antar pengambilan data (ms).
-            const POLL_INTERVAL = 3000;
+            const POLL_INTERVAL = 2000;
 
             // Lama efek perpindahan posisi (ms) — samakan dengan duration-[900ms] pada baris.
-            const MOVE_DURATION = 900;
+            const MOVE_DURATION = 100;
 
             const DEMO_RESULTS = [
                 { name: 'PROJECT TACTILE', percent: 99 },
@@ -203,7 +209,7 @@
                     }
 
                     const apply = function () {
-                        row.fill.style.setProperty('--pct', item.percent + '%');
+                        row.fill.style.setProperty('--p', item.percent);
                         animateNumber(row, item.percent);
                     };
                     // baris baru: tunggu ter-render dulu supaya bar tumbuh dari 0
