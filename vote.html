@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="img/Logo square.webp" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Voting | ORIGIN 2026</title>
+
+    <meta name="title" content="ORIGIN">
+    <meta name="description"
+        content="ORIGIN gives students a stage to pitch their ideas, showcase what they've built, receive feedback from industry professionals, and connect with like-minded students. More than a competition, ORIGIN is a must-have stage for ambitious students to challenge their thinking, test their ideas, and discover ways to create impact.">
+    <meta name="keywords" content="">
+
+    <style>
+        /* Native CSS hanya untuk background: gradient 4 lapis tidak terbaca jika ditulis sebagai utility Tailwind */
+        .vote-bg {
+            background:
+                radial-gradient(60% 55% at 100% 0%, rgba(196, 200, 188, .95) 0%, rgba(196, 200, 188, 0) 60%),
+                radial-gradient(70% 80% at 85% 45%, rgba(126, 196, 232, .95) 0%, rgba(126, 196, 232, 0) 70%),
+                radial-gradient(60% 60% at 0% 100%, #0a2fa6 0%, rgba(10, 47, 166, 0) 75%),
+                linear-gradient(120deg, #2f6fd0 0%, #4a86d4 45%, #6fb0e2 100%);
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body class="vote-bg m-0 overflow-x-hidden text-white">
+    <!--
+        --n     : jumlah tim (diisi lewat JS)
+        --row-h : tinggi satu baris, menyesuaikan tinggi layar & jumlah tim
+    -->
+    <main id="vote"
+        class="mx-auto flex min-h-dvh w-[min(92vw,150vh)] flex-col justify-center py-[4vh] [--n:7] [--row-h:clamp(44px,calc(66vh/var(--n)),120px)] max-sm:[--row-h:clamp(40px,calc(60vh/var(--n)),64px)]">
+        <h1
+            class="mb-[calc(var(--row-h)*.6)] text-center text-[length:calc(var(--row-h)*.46)] font-bold tracking-[.01em] uppercase">
+            Voting Results
+        </h1>
+
+        <ul id="vote-list" class="relative m-0 h-[calc(var(--row-h)*var(--n))] list-none p-0" aria-live="polite"></ul>
+    </main>
+
+    <!--
+        Cetakan satu baris kandidat (di-clone lewat JS).
+        Posisi baris = --i (peringkat) x --row-h, sehingga pergantian peringkat cukup mengubah --i
+        dan transisi `translate` yang menggeser barisnya.
+        data-move="up" / "down" dipasang sementara selama baris berpindah posisi.
+    -->
+    <ul hidden>
+        <li id="vote-row-template" data-entering style="--i: 0"
+            class="group absolute inset-x-0 top-0 z-10 flex h-(--row-h) translate-y-[calc(var(--i)*var(--row-h))] items-center gap-[calc(var(--row-h)*.35)] transition-[translate,scale,opacity] duration-[900ms] ease-[cubic-bezier(.2,.8,.2,1)] data-entering:opacity-0 data-[move=down]:z-0 data-[move=down]:scale-[.97] data-[move=down]:opacity-80 data-[move=up]:z-20 data-[move=up]:scale-[1.04] motion-reduce:transition-none">
+            <div class="relative ml-[calc(var(--row-h)*.2)] h-[82%] min-w-0 flex-1">
+                <div data-fill style="--pct: 0%"
+                    class="absolute inset-y-0 left-0 w-(--pct) min-w-[calc(var(--row-h)*1.65)] rounded-[calc(var(--row-h)*.06)] bg-linear-to-r from-[#0b2a9e] via-[#2a5cc8] via-35% to-[#b7dbf3] transition-[width,box-shadow] duration-1000 ease-[cubic-bezier(.2,.8,.2,1)] group-data-[move=up]:shadow-[0_0_28px_rgba(255,255,255,.6)] motion-reduce:transition-none">
+                </div>
+                <img data-img alt="" hidden
+                    class="absolute top-1/2 -left-[calc(var(--row-h)*.2)] h-[115%] w-[calc(var(--row-h)*1.55)] -translate-y-1/2 object-contain drop-shadow-[0_4px_8px_rgba(0,0,0,.25)]">
+                <span data-name
+                    class="absolute top-1/2 right-0 left-[calc(var(--row-h)*1.7)] -translate-y-1/2 truncate text-[length:calc(var(--row-h)*.25)] font-bold uppercase text-shadow-[0_1px_3px_rgba(11,42,158,.35)]"></span>
+            </div>
+            <span data-pct
+                class="w-[3.6ch] flex-none text-[length:calc(var(--row-h)*.62)] leading-none font-bold tabular-nums">0%</span>
+        </li>
+    </ul>
+
+    <div id="vote-status" role="status"
+        class="fixed right-4 bottom-3 rounded-full bg-black/35 px-2.5 py-1 text-xs font-semibold opacity-0 transition-opacity duration-300 data-visible:opacity-100">
+    </div>
+
+    <script>
+        (function () {
+            'use strict';
+
+            // URL Web App Google Apps Script (yang berakhiran /exec). Lihat apps-script/Code.gs.
+            // Selama masih kosong, halaman menampilkan data contoh.
+            const API_URL = 'https://script.google.com/macros/s/AKfycbxj8-Ox2HDH84H6v8roUAMmW84cMlLhUmS6mRouHRKX8jetePMH9SeccMEG6kH1CjF5/exec';
+
+            // Jeda antar pengambilan data (ms).
+            const POLL_INTERVAL = 3000;
+
+            // Lama efek perpindahan posisi (ms) — samakan dengan duration-[900ms] pada baris.
+            const MOVE_DURATION = 900;
+
+            const DEMO_RESULTS = [
+                { name: 'PROJECT TACTILE', percent: 99 },
+                { name: 'TIGA HATI BERBAGI', percent: 70 },
+                { name: 'BLOOMERS', percent: 65 },
+                { name: 'BAWAH 25', percent: 64 },
+                { name: 'KAPAW', percent: 44 },
+                { name: 'HYDROPPY', percent: 20 },
+                { name: 'SAHABATSEKOLAH', percent: 5 },
+            ];
+
+            const main = document.getElementById('vote');
+            const list = document.getElementById('vote-list');
+            const status = document.getElementById('vote-status');
+            const template = document.getElementById('vote-row-template');
+            const rows = new Map(); // nama tim -> { el, fill, img, pct, index, shown, raf, moveTimer }
+
+            function setStatus(text) {
+                status.textContent = text;
+                status.toggleAttribute('data-visible', text !== '');
+            }
+
+            function createRow(name) {
+                const el = template.cloneNode(true);
+                el.removeAttribute('id');
+
+                const img = el.querySelector('[data-img]');
+                img.addEventListener('error', function () { img.hidden = true; });
+
+                el.querySelector('[data-name]').textContent = name;
+                list.append(el);
+
+                // dua frame agar baris sempat ter-render transparan sebelum di-fade masuk
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () { el.removeAttribute('data-entering'); });
+                });
+
+                return {
+                    el: el,
+                    fill: el.querySelector('[data-fill]'),
+                    img: img,
+                    pct: el.querySelector('[data-pct]'),
+                    index: -1,
+                    shown: 0,
+                    raf: 0,
+                    moveTimer: 0,
+                };
+            }
+
+            // Geser baris ke peringkat barunya. Baris yang naik diangkat ke depan (membesar + glow),
+            // baris yang turun mengecil & meredup, lalu keduanya kembali normal setelah sampai.
+            function moveRow(row, index) {
+                const previous = row.index;
+                row.index = index;
+                row.el.style.setProperty('--i', index);
+
+                if (previous === -1 || previous === index) return;
+
+                clearTimeout(row.moveTimer);
+                row.el.dataset.move = index < previous ? 'up' : 'down';
+                row.moveTimer = setTimeout(function () {
+                    delete row.el.dataset.move;
+                }, MOVE_DURATION);
+            }
+
+            function animateNumber(row, target) {
+                cancelAnimationFrame(row.raf);
+                const from = row.shown;
+                if (from === target) return;
+
+                const start = performance.now();
+                const duration = 1000;
+
+                (function tick(now) {
+                    const t = Math.min(1, (now - start) / duration);
+                    const eased = 1 - Math.pow(1 - t, 3);
+                    row.shown = Math.round(from + (target - from) * eased);
+                    row.pct.textContent = row.shown + '%';
+                    if (t < 1) row.raf = requestAnimationFrame(tick);
+                })(start);
+            }
+
+            function render(results) {
+                const sorted = results
+                    .map(function (item, order) {
+                        return {
+                            name: String(item.name || '').trim(),
+                            percent: Math.max(0, Math.min(100, Math.round(Number(item.percent) || 0))),
+                            votes: Number(item.votes) || 0,
+                            image: String(item.image || '').trim(),
+                            order: order,
+                        };
+                    })
+                    .filter(function (item) { return item.name !== ''; })
+                    .sort(function (a, b) {
+                        return b.percent - a.percent || b.votes - a.votes || a.order - b.order;
+                    });
+
+                const seen = new Set();
+
+                sorted.forEach(function (item) {
+                    if (seen.has(item.name)) return; // nama ganda di sheet: pakai yang pertama
+                    seen.add(item.name);
+
+                    let row = rows.get(item.name);
+                    const isNew = !row;
+                    if (isNew) {
+                        row = createRow(item.name);
+                        rows.set(item.name, row);
+                    }
+
+                    moveRow(row, seen.size - 1);
+
+                    if (item.image && row.img.getAttribute('src') !== item.image) {
+                        row.img.hidden = false;
+                        row.img.src = item.image;
+                    } else if (!item.image) {
+                        row.img.hidden = true;
+                        row.img.removeAttribute('src');
+                    }
+
+                    const apply = function () {
+                        row.fill.style.setProperty('--pct', item.percent + '%');
+                        animateNumber(row, item.percent);
+                    };
+                    // baris baru: tunggu ter-render dulu supaya bar tumbuh dari 0
+                    if (isNew) requestAnimationFrame(function () { requestAnimationFrame(apply); });
+                    else apply();
+                });
+
+                rows.forEach(function (row, name) {
+                    if (seen.has(name)) return;
+                    cancelAnimationFrame(row.raf);
+                    clearTimeout(row.moveTimer);
+                    row.el.remove();
+                    rows.delete(name);
+                });
+
+                main.style.setProperty('--n', Math.max(1, seen.size));
+            }
+
+            async function poll() {
+                try {
+                    const response = await fetch(API_URL, { cache: 'no-store' });
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+
+                    const data = await response.json();
+                    if (!data.ok) throw new Error(data.error || 'Respons tidak valid');
+
+                    render(data.results || []);
+                    setStatus('');
+                } catch (error) {
+                    // data terakhir tetap ditampilkan; coba lagi di putaran berikutnya
+                    console.error('[vote] gagal mengambil data:', error);
+                    setStatus('Reconnecting…');
+                } finally {
+                    setTimeout(poll, POLL_INTERVAL);
+                }
+            }
+
+            if (API_URL) {
+                poll();
+            } else {
+                // Mode demo: angka diacak tiap putaran supaya animasi perpindahan posisi bisa dilihat.
+                render(DEMO_RESULTS);
+                setStatus('Demo data — API_URL belum diisi');
+                setInterval(function () {
+                    render(DEMO_RESULTS.map(function (item) {
+                        return { name: item.name, percent: Math.round(Math.random() * 100) };
+                    }));
+                }, POLL_INTERVAL);
+            }
+        })();
+    </script>
+</body>
+</html>
